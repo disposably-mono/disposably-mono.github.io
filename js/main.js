@@ -56,13 +56,13 @@
       document.body.style.overflow = '';
     }
 
-    /* ── Scroll reveal — both directions ── */
-    var revealObserver = new IntersectionObserver(function(entries) {
+    /* ── Scroll reveal — exposed globally so render.js can re-observe ── */
+    window._revealObserver = new IntersectionObserver(function(entries) {
       entries.forEach(function(e) {
         e.target.classList.toggle('visible', e.isIntersecting);
       });
     }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
-    document.querySelectorAll('.reveal').forEach(function(el) { revealObserver.observe(el); });
+    document.querySelectorAll('.reveal').forEach(function(el) { window._revealObserver.observe(el); });
 
     /* ── Project filter ── */
     function filterProjects(tag) {

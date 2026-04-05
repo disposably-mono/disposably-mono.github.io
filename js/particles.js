@@ -7,65 +7,9 @@
       var toastTimer = null;
       var frame = 0;
 
-      var WORDS = [
-        { text: 'creator',         col: '#588157', size: 13 },
-        { text: 'builder',         col: '#EAF0CE', size: 13 },
-        { text: 'student',         col: '#8D99AE', size: 12 },
-        { text: 'curious',         col: '#E5D4ED', size: 12 },
-        { text: 'learning',        col: '#588157', size: 12 },
-        { text: 'coder',           col: '#8D99AE', size: 12 },
-        { text: 'late nights',     col: '#E5D4ED', size: 11 },
-        { text: 'thinker',         col: '#EAF0CE', size: 12 },
-        { text: 'maker',           col: '#588157', size: 13 },
-        { text: 'explorer',        col: '#8D99AE', size: 11 },
-        { text: 'debugger',        col: '#E5D4ED', size: 11 },
-        { text: 'dreamer',         col: '#EAF0CE', size: 12 },
-        { text: 'problem solver',  col: '#588157', size: 11 },
-        { text: 'freshman',        col: '#8D99AE', size: 11 },
-        { text: 'grower',          col: '#E5D4ED', size: 12 },
-        { text: 'hacker',          col: '#EAF0CE', size: 12 },
-        { text: 'overthinker',     col: '#E5D4ED', size: 11 },
-        { text: 'minimalist',      col: '#8D99AE', size: 12 },
-        { text: 'night owl',       col: '#EAF0CE', size: 11 },
-        { text: 'self-taught',     col: '#588157', size: 12 },
-        { text: 'Filipino',        col: '#E5D4ED', size: 12 },
-        { text: 'simplifier',      col: '#EAF0CE', size: 12 },
-        { text: 'always asking',   col: '#8D99AE', size: 11 },
-        { text: 'bug chaser',      col: '#588157', size: 11 },
-        { text: 'keyboard warrior',col: '#E5D4ED', size: 11 },
-        { text: 'still figuring',  col: '#8D99AE', size: 11 },
-        { text: 'web curious',     col: '#EAF0CE', size: 11 },
-        { text: 'ai enthusiast',   col: '#588157', size: 11 },
-        { text: 'notion addict',   col: '#8D99AE', size: 11 },
-        { text: 'reader',          col: '#E5D4ED', size: 12 },
-        { text: 'shipping soon',   col: '#588157', size: 11 },
-        { text: 'iteration',       col: '#EAF0CE', size: 12 },
-      ];
-
-      var MERGES = [
-        ['curious',       'builder',       'curious builder'],
-        ['student',       'late nights',   'learning the hard way'],
-        ['creator',       'coder',         'creative technologist'],
-        ['thinker',       'maker',         'thoughtful maker'],
-        ['dreamer',       'builder',       'builder of dreams'],
-        ['explorer',      'debugger',      'bug hunter'],
-        ['maker',         'hacker',        'maker-hacker'],
-        ['problem solver','coder',         'elegant engineer'],
-        ['curious',       'explorer',      'endlessly curious'],
-        ['creator',       'dreamer',       'visionary creator'],
-        ['freshman',      'late nights',   'first year grind'],
-        ['grower',        'learning',      'always growing'],
-        ['night owl',     'coder',         'midnight coder'],
-        ['Filipino',      'builder',       'building from Antipolo'],
-        ['minimalist',    'coder',         'clean code only'],
-        ['self-taught',   'curious',       'relentlessly self-taught'],
-        ['overthinker',   'builder',       'think then build'],
-        ['ai enthusiast', 'curious',       'chasing intelligence'],
-        ['reader',        'thinker',       'read to build'],
-        ['shipping soon', 'builder',       'shipping is learning'],
-        ['simplifier',    'problem solver','elegantly simple'],
-        ['iteration',     'grower',        'improve every loop'],
-      ];
+      /* read from data.js — edit particleWords and particleMerges there */
+      var WORDS  = DATA.particleWords;
+      var MERGES = DATA.particleMerges;
 
       /* source pool — words that have been merged out get returned here */
       var POOL = WORDS.map(function(w) { return { text: w.text, col: w.col, size: w.size }; });

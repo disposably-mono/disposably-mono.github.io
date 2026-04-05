@@ -352,7 +352,9 @@
     </div>
   </footer>
 
-  <!-- Scripts — main UI logic, then particle system -->
+  <!-- Scripts: data must load first, then renderer, then UI logic and particles -->
+  <script src="js/data.js"></script>
+  <script src="js/render.js"></script>
   <script src="js/main.js"></script>
   <script src="js/particles.js"></script>
 
