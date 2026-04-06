@@ -3,360 +3,105 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Mono — CS Student, Builder in Progress</title>
+  <title>Mono — Portfolio</title>
   <meta name="description" content="One problem at a time. CS student, builder-in-progress." />
-
-  <!-- Favicon -->
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%2334312D'/><text x='50%25' y='54%25' font-family='Georgia,serif' font-size='20' fill='%23EAF0CE' text-anchor='middle' dominant-baseline='middle'>M</text></svg>" />
-
-  <!-- Open Graph -->
-  <meta property="og:title" content="Mono — CS Student, Builder in Progress" />
-  <meta property="og:description" content="One problem at a time. CS student, builder-in-progress." />
+  <meta property="og:title" content="Mono — Portfolio" />
+  <meta property="og:description" content="CS student and builder-in-progress." />
   <meta property="og:type" content="website" />
-
-  <!-- Fonts -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%2334312D'/><text x='50%25' y='54%25' font-family='Georgia,serif' font-size='20' fill='%23EAF0CE' text-anchor='middle' dominant-baseline='middle'>M</text></svg>" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@400;500&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet" />
-
-  <!-- Styles -->
   <link rel="stylesheet" href="css/style.css" />
 </head>
-
 <body>
-
   <div id="scroll-progress" aria-hidden="true"></div>
+  <div class="mobile-menu" id="mobile-menu" role="dialog" aria-label="Mobile navigation"></div>
 
-  <!-- Mobile menu -->
-  <div class="mobile-menu" id="mobile-menu" role="dialog" aria-label="Mobile navigation">
-    <a href="#about"    onclick="closeMobileMenu()">About</a>
-    <a href="#projects" onclick="closeMobileMenu()">Work</a>
-    <a href="#learning" onclick="closeMobileMenu()">Learning</a>
-    <a href="#contact"  onclick="closeMobileMenu()">Contact</a>
-  </div>
-
-  <!-- ============================================================
-       NAVIGATION
-  ============================================================ -->
   <nav id="nav" role="navigation" aria-label="Main navigation">
-    <div class="nav-logo">M <span>&#8212;</span></div>
-    <ul class="nav-links">
-      <li><a href="#about">About</a></li>
-      <li><a href="#projects">Work</a></li>
-      <li><a href="#learning">Learning</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
+    <div class="nav-logo" id="nav-logo"></div>
+    <ul class="nav-links" id="nav-links"></ul>
     <button class="nav-toggle" id="theme-toggle" onclick="toggleTheme()" aria-label="Toggle color mode">&#9728; Light</button>
     <button class="nav-hamburger" id="nav-hamburger" onclick="toggleMobileMenu()" aria-label="Open navigation" aria-expanded="false">
       <span></span><span></span><span></span>
     </button>
   </nav>
 
-  <!-- ============================================================
-       HERO
-  ============================================================ -->
   <section id="hero" aria-label="Hero">
     <canvas id="hero-canvas" aria-hidden="true"></canvas>
     <div class="merge-toast" id="merge-toast"></div>
-
     <div class="hero-content">
-      <div class="hero-eyebrow">CS Student &middot; Builder in progress</div>
-      <div class="hero-name" aria-label="Mono">Mono.</div>
-      <p class="hero-tagline">
-        One problem at a time.<br>
-        <em>Currently: all of them.</em>
-      </p>
-      <div class="hero-hint-inline" aria-hidden="true">&#8593; words drift and merge on their own</div>
+      <div class="hero-eyebrow"></div>
+      <div class="hero-name"></div>
+      <p class="hero-tagline"></p>
+      <div class="hero-hint-inline" aria-hidden="true"></div>
     </div>
-
     <div class="hero-cta" aria-label="Identity">
-      <div class="hero-cta-line">I'm here. No one can stop me.</div>
-      <div class="hero-pills">
-        <span class="hero-pill p-beige">Mikel Taopa</span>
-        <span class="hero-pill p-fern">17 years old</span>
-        <span class="hero-pill p-lav">Computer Science</span>
-        <span class="hero-pill p-grey">Antipolo City, Rizal</span>
-      </div>
+      <div class="hero-cta-line"></div>
+      <div class="hero-pills"></div>
     </div>
   </section>
 
-  <!-- ============================================================
-       ABOUT
-  ============================================================ -->
-  <section id="about" class="section" aria-labelledby="about-heading">
+  <section id="about" class="section" aria-labelledby="about-heading-text">
     <div class="container">
-      <div class="section-intro reveal">
-        <span class="t-label">01 &mdash; About</span>
-      </div>
+      <div class="section-intro reveal" id="intro-about"><span class="t-label"></span></div>
       <div class="about-grid">
         <div class="about-label-col reveal">
-          <h2 class="t-h1" id="about-heading">Who I<br><em style="font-style:italic; color:var(--accent)">am.</em></h2>
-          <div style="margin-top:32px; display:flex; flex-direction:column; gap:10px;">
-            <a href="https://github.com/disposably-mono" target="_blank" rel="noopener" class="t-label" style="color:var(--text-sec); transition:color 0.2s;" onmouseenter="this.style.color='var(--accent)'" onmouseleave="this.style.color='var(--text-sec)'">GitHub &#8599;</a>
-            <a href="https://www.linkedin.com/in/mikel-taopa-a86205359/" target="_blank" rel="noopener" class="t-label" style="color:var(--text-sec); transition:color 0.2s;" onmouseenter="this.style.color='var(--accent)'" onmouseleave="this.style.color='var(--text-sec)'">LinkedIn &#8599;</a>
-            <a href="/resume.pdf" target="_blank" rel="noopener" class="t-label" style="color:var(--text-sec); transition:color 0.2s;" onmouseenter="this.style.color='var(--accent)'" onmouseleave="this.style.color='var(--text-sec)'">Resume &#8599;</a>
-          </div>
+          <h2 class="t-h1" id="about-heading-text">Who I<br><em style="font-style:italic; color:var(--accent)">am.</em></h2>
+          <div id="about-links" style="margin-top:32px; display:flex; flex-direction:column; gap:10px;"></div>
         </div>
         <div class="about-text-col reveal" style="transition-delay:0.1s">
-          <p class="t-body" style="margin-bottom:20px;">
-            Hey &mdash; I'm Mono. I'm an incoming CS freshman with a curiosity for
-            building things that are simple, useful, and well-made. I'm drawn
-            to the intersection of web and AI, though honestly I'm still figuring
-            out exactly where I want to go.
-          </p>
-          <p class="t-body" style="margin-bottom:20px;">
-            What drives me is finding the simplest solution to a hard problem.
-            I like the moment when something clicks &mdash; when 50 lines becomes 10,
-            or when an idea that seemed vague suddenly has a clear shape.
-          </p>
-          <p class="t-body">
-            Currently: studying CS, building in public, and learning as fast as I can.
-          </p>
-          <div class="about-status">
-            <div class="about-status-row">
-              <span class="t-label" style="color:var(--text-muted)"><span class="status-dot"></span>Currently</span>
-              <p style="font-size:14px; color:var(--text-primary); margin-top:2px;">
-                Freshman @ <strong style="font-weight:500">[Your University]</strong>
-              </p>
-            </div>
-            <div class="about-status-row">
-              <span class="t-label" style="color:var(--text-muted)">Previously</span>
-              <p style="font-size:14px; color:var(--text-sec); margin-top:2px;">
-                Alumni @ Our Lady of Peace School
-              </p>
-            </div>
-          </div>
+          <div id="about-bio"></div>
+          <div class="about-status" id="about-status"></div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ============================================================
-       SKILLS
-  ============================================================ -->
   <section id="skills" class="section" aria-labelledby="skills-heading">
     <div class="container">
-      <div class="section-intro reveal">
-        <span class="t-label" id="skills-heading">02 &mdash; Skills &amp; Tools</span>
-      </div>
-      <div class="skills-grid">
-        <div class="skill-group reveal">
-          <p class="t-label" style="color:var(--text-muted); margin-bottom:20px;">Languages</p>
-          <div style="display:flex; flex-wrap:wrap; gap:8px;">
-            <span class="skill-tag">Python</span>
-            <span class="skill-tag">JavaScript</span>
-            <span class="skill-tag">HTML</span>
-            <span class="skill-tag">CSS</span>
-          </div>
-        </div>
-        <div class="skill-group reveal" style="transition-delay:0.1s">
-          <p class="t-label" style="color:var(--text-muted); margin-bottom:20px;">Tools</p>
-          <div style="display:flex; flex-wrap:wrap; gap:8px;">
-            <span class="skill-tag">Git</span>
-            <span class="skill-tag">VS Code</span>
-            <span class="skill-tag">Terminal</span>
-          </div>
-        </div>
-        <div class="skill-group reveal" style="transition-delay:0.2s">
-          <p class="t-label" style="color:var(--text-muted); margin-bottom:20px;">Exploring</p>
-          <div style="display:flex; flex-wrap:wrap; gap:8px;">
-            <span class="skill-tag exploring">React</span>
-            <span class="skill-tag exploring">SQL</span>
-            <span class="skill-tag exploring">ML / NumPy</span>
-            <span class="skill-tag exploring">Node.js</span>
-          </div>
-        </div>
-      </div>
+      <div class="section-intro reveal" id="intro-skills"><span class="t-label"></span></div>
+      <div class="skills-grid"></div>
     </div>
   </section>
 
-  <!-- ============================================================
-       PROJECTS
-  ============================================================ -->
   <section id="projects" class="section" aria-labelledby="projects-heading">
     <div class="container">
-      <div class="section-intro reveal">
-        <span class="t-label" id="projects-heading">03 &mdash; Projects</span>
-      </div>
-      <div class="project-filters reveal" role="group" aria-label="Filter projects">
-        <button class="filter-btn active" onclick="filterProjects('all')">All</button>
-        <button class="filter-btn" onclick="filterProjects('web')">Web</button>
-        <button class="filter-btn" onclick="filterProjects('ai')">AI / ML</button>
-        <button class="filter-btn" onclick="filterProjects('tools')">Tools</button>
-      </div>
-      <div class="projects-grid" id="projects-grid">
-
-        <!-- FEATURED PROJECT — FILL IN -->
-        <article class="project-card featured reveal" data-tags="web">
-          <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:20px;">
-            <span class="t-label">Featured project</span>
-            <div style="display:flex; gap:10px;">
-              <a href="#" target="_blank" rel="noopener" class="t-label" style="color:var(--text-muted); transition:color 0.2s;" onmouseenter="this.style.color='var(--accent)'" onmouseleave="this.style.color='var(--text-muted)'">Live &#8599;</a>
-              <a href="#" target="_blank" rel="noopener" class="t-label" style="color:var(--text-muted); transition:color 0.2s;" onmouseenter="this.style.color='var(--accent)'" onmouseleave="this.style.color='var(--text-muted)'">GitHub &#8599;</a>
-            </div>
-          </div>
-          <h3 class="t-h2" style="margin-bottom:12px;">[Project Name]</h3>
-          <p class="t-body" style="margin-bottom:24px; font-size:15px;">
-            A brief description of what this project does, the problem it solves,
-            and what made it interesting to build.
-          </p>
-          <div style="border-top:0.5px solid var(--border); padding-top:16px; margin-bottom:16px;">
-            <p class="t-label" style="color:var(--text-muted); margin-bottom:8px;">What I learned</p>
-            <p style="font-size:14px; color:var(--text-sec);">
-              The most interesting thing I learned building this was...
-            </p>
-          </div>
-          <div style="display:flex; gap:8px; flex-wrap:wrap;">
-            <span class="filter-btn" style="pointer-events:none;">HTML</span>
-            <span class="filter-btn" style="pointer-events:none;">CSS</span>
-            <span class="filter-btn" style="pointer-events:none;">JavaScript</span>
-          </div>
-        </article>
-
-        <article class="project-card reveal" style="transition-delay:0.1s; opacity:0.4; border-style:dashed;" data-tags="all">
-          <span class="t-label" style="color:var(--text-muted);">Coming this summer</span>
-          <p style="margin-top:16px; font-size:14px; color:var(--text-muted);">Next project in progress...</p>
-        </article>
-
-        <article class="project-card reveal" style="transition-delay:0.2s; opacity:0.4; border-style:dashed;" data-tags="all">
-          <span class="t-label" style="color:var(--text-muted);">Coming this summer</span>
-          <p style="margin-top:16px; font-size:14px; color:var(--text-muted);">Next project in progress...</p>
-        </article>
-
-      </div>
+      <div class="section-intro reveal" id="intro-projects"><span class="t-label"></span></div>
+      <div class="project-filters reveal" id="project-filters" role="group" aria-label="Filter projects"></div>
+      <div class="projects-grid" id="projects-grid"></div>
     </div>
   </section>
 
-  <!-- ============================================================
-       CURRENTLY LEARNING
-  ============================================================ -->
   <section id="learning" class="section" aria-labelledby="learning-heading">
     <div class="container">
-      <div class="section-intro reveal">
-        <span class="t-label" id="learning-heading">04 &mdash; Currently Learning</span>
-      </div>
+      <div class="section-intro reveal" id="intro-learning"><span class="t-label"></span></div>
     </div>
     <div class="learning-ticker-wrap reveal">
-      <div class="learning-ticker">
-        <!-- Set 1 -->
-        <div class="learning-card">
-          <p class="t-label" style="color:var(--text-muted); margin-bottom:8px;">Course</p>
-          <p style="font-size:15px; font-weight:400; color:var(--text-primary); margin-bottom:4px;">[Course Name]</p>
-          <p style="font-size:13px; color:var(--text-sec);">[Platform / University]</p>
-          <div style="width:8px; height:8px; border-radius:50%; background:var(--accent); margin-top:14px;"></div>
-        </div>
-        <div class="learning-card">
-          <p class="t-label" style="color:var(--text-muted); margin-bottom:8px;">Book</p>
-          <p style="font-size:15px; font-weight:400; color:var(--text-primary); margin-bottom:4px;">[Book Title]</p>
-          <p style="font-size:13px; color:var(--text-sec);">[Author]</p>
-          <div style="width:8px; height:8px; border-radius:50%; background:var(--highlight); margin-top:14px;"></div>
-        </div>
-        <div class="learning-card">
-          <p class="t-label" style="color:var(--text-muted); margin-bottom:8px;">Topic</p>
-          <p style="font-size:15px; font-weight:400; color:var(--text-primary); margin-bottom:4px;">Machine Learning basics</p>
-          <p style="font-size:13px; color:var(--text-sec);">Self-directed</p>
-          <div style="width:8px; height:8px; border-radius:50%; background:var(--lavender-grey); margin-top:14px;"></div>
-        </div>
-        <div class="learning-card">
-          <p class="t-label" style="color:var(--text-muted); margin-bottom:8px;">Topic</p>
-          <p style="font-size:15px; font-weight:400; color:var(--text-primary); margin-bottom:4px;">Data structures &amp; algorithms</p>
-          <p style="font-size:13px; color:var(--text-sec);">Self-directed</p>
-          <div style="width:8px; height:8px; border-radius:50%; background:var(--accent); margin-top:14px;"></div>
-        </div>
-        <div class="learning-card">
-          <p class="t-label" style="color:var(--text-muted); margin-bottom:8px;">Framework</p>
-          <p style="font-size:15px; font-weight:400; color:var(--text-primary); margin-bottom:4px;">React fundamentals</p>
-          <p style="font-size:13px; color:var(--text-sec);">docs.react.dev</p>
-          <div style="width:8px; height:8px; border-radius:50%; background:var(--highlight); margin-top:14px;"></div>
-        </div>
-        <!-- Set 2 — duplicate for seamless loop -->
-        <div class="learning-card">
-          <p class="t-label" style="color:var(--text-muted); margin-bottom:8px;">Course</p>
-          <p style="font-size:15px; font-weight:400; color:var(--text-primary); margin-bottom:4px;">[Course Name]</p>
-          <p style="font-size:13px; color:var(--text-sec);">[Platform / University]</p>
-          <div style="width:8px; height:8px; border-radius:50%; background:var(--accent); margin-top:14px;"></div>
-        </div>
-        <div class="learning-card">
-          <p class="t-label" style="color:var(--text-muted); margin-bottom:8px;">Book</p>
-          <p style="font-size:15px; font-weight:400; color:var(--text-primary); margin-bottom:4px;">[Book Title]</p>
-          <p style="font-size:13px; color:var(--text-sec);">[Author]</p>
-          <div style="width:8px; height:8px; border-radius:50%; background:var(--highlight); margin-top:14px;"></div>
-        </div>
-        <div class="learning-card">
-          <p class="t-label" style="color:var(--text-muted); margin-bottom:8px;">Topic</p>
-          <p style="font-size:15px; font-weight:400; color:var(--text-primary); margin-bottom:4px;">Machine Learning basics</p>
-          <p style="font-size:13px; color:var(--text-sec);">Self-directed</p>
-          <div style="width:8px; height:8px; border-radius:50%; background:var(--lavender-grey); margin-top:14px;"></div>
-        </div>
-        <div class="learning-card">
-          <p class="t-label" style="color:var(--text-muted); margin-bottom:8px;">Topic</p>
-          <p style="font-size:15px; font-weight:400; color:var(--text-primary); margin-bottom:4px;">Data structures &amp; algorithms</p>
-          <p style="font-size:13px; color:var(--text-sec);">Self-directed</p>
-          <div style="width:8px; height:8px; border-radius:50%; background:var(--accent); margin-top:14px;"></div>
-        </div>
-        <div class="learning-card">
-          <p class="t-label" style="color:var(--text-muted); margin-bottom:8px;">Framework</p>
-          <p style="font-size:15px; font-weight:400; color:var(--text-primary); margin-bottom:4px;">React fundamentals</p>
-          <p style="font-size:13px; color:var(--text-sec);">docs.react.dev</p>
-          <div style="width:8px; height:8px; border-radius:50%; background:var(--highlight); margin-top:14px;"></div>
-        </div>
-      </div>
+      <div class="learning-ticker" id="learning-ticker"></div>
     </div>
   </section>
 
-  <!-- ============================================================
-       NOTES / BLOG
-  ============================================================ -->
   <section id="notes" class="section" aria-labelledby="notes-heading">
     <div class="container">
-      <div class="section-intro reveal">
-        <span class="t-label" id="notes-heading">05 &mdash; Notes</span>
-      </div>
-      <div class="notes-list">
-        <a href="#" class="note-item reveal">
-          <span class="note-title">[Post title &mdash; what you learned, observed, or built]</span>
-          <span class="note-date">Summer 2025</span>
-        </a>
-        <a href="#" class="note-item reveal" style="transition-delay:0.05s">
-          <span class="note-title">[Another post]</span>
-          <span class="note-date">Summer 2025</span>
-        </a>
-        <div class="note-item reveal" style="transition-delay:0.1s; opacity:0.35; pointer-events:none;">
-          <span class="note-title" style="font-style:italic;">More notes coming soon...</span>
-          <span class="note-date">&mdash;</span>
-        </div>
-      </div>
+      <div class="section-intro reveal" id="intro-notes"><span class="t-label"></span></div>
+      <div class="notes-list" id="notes-list"></div>
     </div>
   </section>
 
-  <!-- ============================================================
-       CONTACT
-  ============================================================ -->
   <footer id="contact" aria-labelledby="contact-heading">
     <div class="contact-inner">
-      <h2 class="contact-headline reveal" id="contact-heading">Let's talk.</h2>
-      <p class="t-body reveal" style="color:var(--lavender-grey); max-width:360px; text-align:center; transition-delay:0.1s;">
-        Always open to interesting conversations, collaborations, and opportunities.
-      </p>
-      <a href="mailto:mikel.taopa@gmail.com" class="contact-cta-btn reveal" style="transition-delay:0.15s;">Say hello &#8599;</a>
-      <div class="contact-links reveal" style="transition-delay:0.2s;">
-        <a href="https://github.com/disposably-mono" class="contact-link" target="_blank" rel="noopener">GitHub</a>
-        <a href="https://www.linkedin.com/in/mikel-taopa-a86205359/" class="contact-link" target="_blank" rel="noopener">LinkedIn</a>
-        <a href="https://www.instagram.com/disposablymono/" class="contact-link" target="_blank" rel="noopener">Instagram</a>
-        <a href="https://www.facebook.com/" class="contact-link" target="_blank" rel="noopener">Facebook</a>
-        <a href="tel:+639614436758" class="contact-link">+63 961 443 6758</a>
-      </div>
-      <p class="contact-foot reveal" style="transition-delay:0.3s;">
-        &copy; <span id="year"></span> Mono &mdash; Built from scratch.
-      </p>
+      <h2 class="contact-headline reveal" id="contact-heading"></h2>
+      <p class="t-body reveal" id="contact-sub" style="color:var(--lavender-grey); max-width:360px; text-align:center; transition-delay:0.1s;"></p>
+      <a class="contact-cta-btn reveal" id="contact-cta" style="transition-delay:0.15s;"></a>
+      <div class="contact-links reveal" id="contact-links" style="transition-delay:0.2s;"></div>
+      <p class="contact-foot reveal" id="contact-foot" style="transition-delay:0.3s;"></p>
     </div>
   </footer>
 
-  <!-- Scripts: data must load first, then renderer, then UI logic and particles -->
   <script src="js/data.js"></script>
   <script src="js/render.js"></script>
   <script src="js/main.js"></script>
   <script src="js/particles.js"></script>
-
 </body>
 </html>

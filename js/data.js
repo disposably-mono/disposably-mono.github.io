@@ -1,10 +1,39 @@
-/* ============================================================
-   data.js — all site content lives here
-   Edit this file to update any section of the portfolio.
-   No HTML knowledge needed for most updates.
-============================================================ */
-
 const DATA = {
+  /* ── Meta ── */
+  meta: {
+    title: 'Mono — Portfolio',
+    description: 'One problem at a time. CS student, builder-in-progress.',
+    ogTitle: 'Mono — Portfolio',
+    ogDesc: 'CS student and builder-in-progress.'
+  },
+
+  /* ── Nav ── */
+  nav: {
+    logo: 'M',
+    links: [
+      { label: 'About', href: '#about' },
+      { label: 'Work', href: '#projects' },
+      { label: 'Learning', href: '#learning' },
+      { label: 'Contact', href: '#contact' },
+    ],
+  },
+
+  /* ── Sections ── */
+  sections: {
+    about: { num: '01', label: 'About' },
+    skills: { num: '02', label: 'Skills & Tools' },
+    projects: { num: '03', label: 'Projects' },
+    learning: { num: '04', label: 'Currently Learning' },
+    notes: { num: '05', label: 'Notes' },
+  },
+
+  projectFilters: [
+    { label: 'All', value: 'all' },
+    { label: 'WebDev', value: 'web' },
+    { label: 'GameDev', value: 'game' },
+    { label: 'AI / ML', value: 'ai' },
+    { label: 'Utils', value: 'util' },
+  ],
 
   /* ── Identity ── */
   identity: {
@@ -17,86 +46,81 @@ const DATA = {
     tagline: 'One problem at a time.',
     taglineSub: 'Currently: all of them.',
     ctaLine: "I'm here. No one can stop me.",
+    hintText: '↑ words drift and merge on their own',
     email: 'mikel.taopa@gmail.com',
     phone: '+639614436758',
     phoneDisplay: '+63 961 443 6758',
+    contactHeadline: "Let's talk.",
+    contactSub: 'Always open to interesting conversations, collaborations, and opportunities.',
+    footerText: 'Built from scratch.',
   },
 
-  /* ── Social / quick links ── */
   links: {
     github: 'https://github.com/disposably-mono',
     linkedin: 'https://www.linkedin.com/in/mikel-taopa-a86205359/',
     instagram: 'https://www.instagram.com/disposablymono/',
-    facebook: 'https://www.facebook.com/',
-    resume: '/resume.pdf',
+    facebook: 'https://www.facebook.com/MikelTaopa',
+    resume: 'assets/resume.pdf',
   },
 
-  /* ── About bio — each string is one paragraph ── */
   bio: [
     "Hey — I'm Mono. I'm an incoming CS freshman with a curiosity for building things that are simple, useful, and well-made. I'm drawn to the intersection of web and AI, though honestly I'm still figuring out exactly where I want to go.",
     "What drives me is finding the simplest solution to a hard problem. I like the moment when something clicks — when 50 lines becomes 10, or when an idea that seemed vague suddenly has a clear shape.",
     "Currently: studying CS, building in public, and learning as fast as I can.",
   ],
 
-  /* ── Status rows in the About card ── */
   status: [
-    { label: 'Currently', value: 'Freshman @ [Your University]', active: true },
+    { label: 'Currently', value: 'Freshman CS Student', active: true },
     { label: 'Previously', value: 'Alumni @ Our Lady of Peace School', active: false },
   ],
 
-  /* ── Skills — add/remove tags freely ── */
   skills: [
     {
       group: 'Languages',
-      tags: ['Python', 'JavaScript', 'HTML', 'CSS'],
+      tags: ['Python', 'JavaScript', 'HTML', 'CSS', 'SQL'],
       exploring: false,
     },
     {
       group: 'Tools',
-      tags: ['Git', 'VS Code', 'Terminal', 'Fedora', 'Linux'],
+      tags: ['Git', 'Terminal', 'VS Code', 'NeoVim', 'Claude Code', 'MS Excel', 'MS Powerpoint',],
+      exploring: false,
+    },
+    {
+      group: 'Setup',
+      tags: ['Linux', 'Fedora', 'i3', 'Polybar', 'Picom', 'Rofi', 'Alacritty', 'LazyVim'],
       exploring: false,
     },
     {
       group: 'Exploring',
-      tags: ['React', 'SQL', 'ML / NumPy', 'Node.js'],
+      tags: ['React', 'PostgresSQL', 'NumPy', 'Node.js', 'Docker'],
       exploring: true,
     },
   ],
 
-  /* ── Projects ── */
-  /* tags: used for filter buttons — must match filter values: 'web', 'ai', 'tools' */
   projects: [
     {
-      title: 'halal.',
-      description: 'halal. (Filipino for to elect) is a high-integrity, web-based election management platform built specifically for the Our Lady of Peace School (OLPS) Commission on Elections (COMELEC)',
-      learned: 'The most interesting thing I learned building this was full stack web development',
+      title: 'Portfolio Site',
+      description: 'A custom-built, data-driven portfolio designed to showcase my projects and learning journey.',
+      learned: 'Integrating JavaScript data objects with DOM rendering while maintaining a clean aesthetic.',
       tags: ['web'],
-      stack: ['React', 'Next.js', 'Typescript'],
+      stack: ['HTML', 'CSS', 'JavaScript'],
       liveUrl: '#',
-      repoUrl: 'https://github.com/disposably-mono/halal',
+      repoUrl: '#',
       featured: true,
     },
-    /* Add more projects here — copy the object above */
   ],
 
-  /* ── Learning ticker ── */
-  /* type: 'Course' | 'Book' | 'Topic' | 'Framework' | 'Tool' */
-  /* dot: 'accent' | 'highlight' | 'grey' — controls the dot color */
   learning: [
-    { type: 'Course', title: '[Course Name]', source: '[Platform / University]', dot: 'accent' },
-    { type: 'Book', title: '[Book Title]', source: '[Author]', dot: 'highlight' },
+    { type: 'Course', title: 'CS50P', source: 'Harvard / EdX', dot: 'accent' },
     { type: 'Topic', title: 'Machine Learning basics', source: 'Self-directed', dot: 'grey' },
     { type: 'Topic', title: 'Data structures & algorithms', source: 'Self-directed', dot: 'accent' },
     { type: 'Framework', title: 'React fundamentals', source: 'docs.react.dev', dot: 'highlight' },
   ],
 
-  /* ── Notes / blog ── */
   notes: [
-    { title: '[Post title — what you learned, observed, or built]', date: 'Summer 2025', url: '#' },
-    { title: '[Another post]', date: 'Summer 2025', url: '#' },
+    { title: 'The start of my CS journey', date: 'Summer 2025', url: '#' },
   ],
 
-  /* ── Particle words — the hero background ── */
   particleWords: [
     { text: 'creator', col: '#588157', size: 13 },
     { text: 'builder', col: '#EAF0CE', size: 13 },
@@ -132,8 +156,6 @@ const DATA = {
     { text: 'iteration', col: '#EAF0CE', size: 12 },
   ],
 
-  /* ── Particle merge pairs ── */
-  /* ['word1', 'word2', 'result when they collide'] */
   particleMerges: [
     ['curious', 'builder', 'curious builder'],
     ['student', 'late nights', 'learning the hard way'],
@@ -158,5 +180,4 @@ const DATA = {
     ['simplifier', 'problem solver', 'elegantly simple'],
     ['iteration', 'grower', 'improve every loop'],
   ],
-
 };

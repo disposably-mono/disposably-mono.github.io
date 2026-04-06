@@ -1,4 +1,4 @@
-    :root {
+:root {
       --graphite:      #34312D;
       --fern:          #588157;
       --fern-dark:     #3B6D11;
@@ -286,6 +286,8 @@
 
     /* ── Skills ── */
     .skills-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .skill-group.full-width { grid-column: 1 / -1; }
+    .skill-group.full-width .skill-tags-wrap { display: flex; flex-wrap: wrap; gap: 8px; }
     .skill-tag {
       font-family: var(--font-mono); font-size: 11px; padding: 5px 16px;
       border-radius: 99px; border: 0.5px solid var(--accent);
