@@ -99,16 +99,6 @@ const DATA = {
 
   projects: [
     {
-      title: 'Portfolio Site',
-      description: 'A custom-built, data-driven portfolio designed to showcase my projects and learning journey.',
-      learned: 'Integrating JavaScript data objects with DOM rendering while maintaining a clean aesthetic.',
-      tags: ['web'],
-      stack: ['HTML', 'CSS', 'JavaScript'],
-      liveUrl: 'https://disposably-mono.github.io/',
-      repoUrl: 'https://github.com/disposably-mono/disposably-mono.github.io',
-      featured: false,
-    },
-    {
       title: 'halal.',
       description: 'A full-stack election management system built for a school of ~2,000 students, replacing manual paper ballot processes with real-time digital voting, live tally monitoring, and automated results publishing.',
       learned: 'Architecting a production-grade system end-to-end — from database schema design and JWT authentication to Docker deployment and real-time polling — while directing AI-assisted development with full ownership of every technical decision.',
@@ -117,6 +107,16 @@ const DATA = {
       liveUrl: '#',
       repoUrl: 'https://github.com/disposably-mono/halal',
       featured: true,
+    },
+    {
+      title: 'Portfolio Site',
+      description: 'A custom-built, data-driven portfolio designed to showcase my projects and learning journey.',
+      learned: 'Integrating JavaScript data objects with DOM rendering while maintaining a clean aesthetic.',
+      tags: ['web'],
+      stack: ['HTML', 'CSS', 'JavaScript'],
+      liveUrl: 'https://disposably-mono.github.io/',
+      repoUrl: 'https://github.com/disposably-mono/disposably-mono.github.io',
+      featured: false,
     },
   ],
 
