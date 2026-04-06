@@ -70,7 +70,7 @@ const DATA = {
   ],
 
   status: [
-    { label: 'Currently', value: 'Freshman CS Student', active: true },
+    { label: 'Currently', value: 'Incoming CS Student', active: true },
     { label: 'Previously', value: 'Alumni @ Our Lady of Peace School', active: false },
   ],
 
@@ -121,14 +121,18 @@ const DATA = {
   ],
 
   learning: [
-    { type: 'Course', title: 'CS50P', source: 'Harvard / EdX', dot: 'accent' },
-    { type: 'Topic', title: 'Machine Learning basics', source: 'Self-directed', dot: 'grey' },
-    { type: 'Topic', title: 'Data structures & algorithms', source: 'Self-directed', dot: 'accent' },
-    { type: 'Framework', title: 'React fundamentals', source: 'docs.react.dev', dot: 'highlight' },
+    { type: 'Course', title: 'Claude Code in Action', source: 'Anthropic', dot: 'accent' },
+    { type: 'Course', title: 'Claude 101', source: 'Anthropic', dot: 'accent' },
+    { type: 'Course', title: 'AI Fluency for Students', source: 'Anthropic', dot: 'accent' },
+    { type: 'Course', title: 'MOS: PowerPoint Associate (Microsoft 365)', source: 'Microsoft', dot: 'accent' },
+    { type: 'Course', title: 'MOS: Excel Associate (Microsoft 365)', source: 'Microsoft', dot: 'accent' },
+    { type: 'Topic', title: 'Machine Learning Basics', source: 'Self-directed', dot: 'grey' },
+    { type: 'Topic', title: 'Data Structures & Algorithms', source: 'Self-directed', dot: 'grey' },
+    { type: 'Framework', title: 'React Fundamentals', source: 'docs.react.dev', dot: 'highlight' },
   ],
 
   notes: [
-    { title: 'The start of my CS journey', date: 'Summer 2025', url: '#' },
+    { title: 'The start of my CS journey', date: 'April 4, 2026', url: '#' },
   ],
 
   particleWords: [
