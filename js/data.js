@@ -31,7 +31,7 @@ const DATA = {
     { label: 'All', value: 'all' },
     { label: 'WebDev', value: 'web' },
     { label: 'GameDev', value: 'game' },
-    { label: 'AI / ML', value: 'ai' },
+    { label: 'Data', value: 'data' },
     { label: 'Utils', value: 'util' },
   ],
 
@@ -92,7 +92,7 @@ const DATA = {
     },
     {
       group: 'Exploring',
-      tags: ['TypeScript', 'SQLite', 'PostgresSQL', 'Prisma', 'NumPy', 'React', 'Next.js', 'Node.js', 'Docker'],
+      tags: ['TypeScript', 'SQLite', 'PostgreSQL', 'Prisma', 'NumPy', 'React', 'Next.js', 'Node.js', 'Docker'],
       exploring: true,
     },
   ],
