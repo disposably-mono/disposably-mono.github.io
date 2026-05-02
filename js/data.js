@@ -64,9 +64,8 @@ const DATA = {
   },
 
   bio: [
-    "Hey — I'm Mono. I'm an incoming CS freshman with a curiosity for building things that are simple, useful, and well-made. I'm drawn to the intersection of web and AI, though honestly I'm still figuring out exactly where I want to go.",
-    "What drives me is finding the simplest solution to a hard problem. I like the moment when something clicks — when 50 lines becomes 10, or when an idea that seemed vague suddenly has a clear shape.",
-    "Currently: studying CS, building in public, and learning as fast as I can.",
+    "I'm Mikel, also known as Mono. I'm an incoming Computer Science freshman who believes that what separates the good from the best isn't just skill, but rather vision. I have a knack for building things that are intuitive, innovative, and genuinely well-made.",
+    "I don't just want to write code that works; I want to build things that feel right, solve real problems, and leave a mark. One problem at a time.",
   ],
 
   status: [
@@ -87,7 +86,7 @@ const DATA = {
     },
     {
       group: 'Setup',
-      tags: ['Linux', 'Fedora', 'i3', 'Polybar', 'Picom', 'Rofi', 'Alacritty', 'LazyVim'],
+      tags: ['Linux', 'Fedora', 'Gnome',  'Kitty', 'LazyVim',],
       exploring: false,
     },
     {
@@ -102,14 +101,24 @@ const DATA = {
       title: 'halal.',
       description: 'A full-stack election management system built for a school of ~2,000 students, replacing manual paper ballot processes with real-time digital voting, live tally monitoring, and automated results publishing.',
       learned: 'Architecting a production-grade system end-to-end — from database schema design and JWT authentication to Docker deployment and real-time polling — while directing AI-assisted development with full ownership of every technical decision.',
-      tags: ['web'],
+      tags: ['web', 'util'],
       stack: ['React', 'Next.js', 'TypeScript', 'PostgreSQL', 'Prisma', 'Tailwind', 'Docker'],
       liveUrl: '#',
       repoUrl: 'https://github.com/disposably-mono/halal',
       featured: true,
     },
     {
-      title: 'Portfolio Site',
+      title: 'Mono-Dialect',
+      description: 'A word-guessing web game with a roguelike run mode, weighted scoring, and social leaderboards. Built under the MONO brand.',
+      learned: 'Architected a full-stack Next.js game with JWT-secured scoring, Dockerized Postgres, Auth.js Google OAuth, and a friends system. Implemented server-side game logic, Prisma ORM with Supabase, and TypeScript across the entire app.',
+      tags: ['web', 'game'],
+      stack: ['Next.js', 'TypeScript', 'Tailwind', 'Prisma', 'PostgreSQL', 'Auth.js', 'Docker'],
+      liveUrl: 'https://mono-dialect.vercel.app/',
+      repoUrl: 'https://github.com/disposably-mono/mono-dialect',
+      featured: false,
+    },
+    {
+      title: 'Mono-Portfolio',
       description: 'A custom-built, data-driven portfolio designed to showcase my projects and learning journey.',
       learned: 'Integrating JavaScript data objects with DOM rendering while maintaining a clean aesthetic.',
       tags: ['web'],
@@ -168,6 +177,15 @@ const DATA = {
     { text: 'reader', col: '#E5D4ED', size: 12 },
     { text: 'shipping soon', col: '#588157', size: 11 },
     { text: 'iteration', col: '#EAF0CE', size: 12 },
+    { text: 'resilient', col: '#588157', size: 12 },
+    { text: 'courageous', col: '#E5D4ED', size: 12 },
+    { text: 'empathetic', col: '#EAF0CE', size: 12 },
+    { text: 'visionary', col: '#8D99AE', size: 12 },
+    { text: 'fun', col: '#588157', size: 11 },
+    { text: 'adaptable', col: '#E5D4ED', size: 12 },
+    { text: 'straightforward', col: '#EAF0CE', size: 11 },
+    { text: 'independent', col: '#8D99AE', size: 12 },
+    { text: 'hands-on', col: '#588157', size: 11 },
   ],
 
   particleMerges: [
