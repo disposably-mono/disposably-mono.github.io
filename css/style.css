@@ -832,13 +832,22 @@ body.intro-active #hero-canvas {
    ============================================================ */
 
 #contact {
+  position: relative;
+  height: 100dvh;
+  min-height: 600px;
   background: var(--graphite);
   border-radius: var(--radius-lg) var(--radius-lg) 0 0;
   margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
 }
 .contact-inner {
   padding: 80px 32px 60px;
   max-width: var(--max-w);
+  width: 100%;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
@@ -848,7 +857,7 @@ body.intro-active #hero-canvas {
 }
 .contact-headline {
   font-family: var(--font-serif);
-  font-size: clamp(40px, 8vw, 80px);
+  font-size: clamp(48px, 10vw, 100px);
   color: var(--beige);
   line-height: 1;
   letter-spacing: -0.02em;
@@ -888,9 +897,21 @@ body.intro-active #hero-canvas {
   color: var(--lavender-grey);
   border-bottom: 0.5px solid rgba(141,153,174,0.3);
   padding-bottom: 2px;
-  transition: color 0.2s, border-color 0.2s;
+  opacity: 0;
+  transform: translateY(14px);
+  animation: contactLinkReveal 0.55s var(--ease-out-strong) both;
+  animation-delay: calc(0.55s + var(--i, 0) * 0.08s);
+  transition: color 0.2s, border-color 0.2s, transform 0.2s var(--ease-out-strong);
 }
-.contact-link:hover { color: var(--beige); border-color: var(--beige); }
+.contact-link:hover {
+  color: var(--beige);
+  border-color: var(--beige);
+  transform: translateY(-2px);
+}
+@keyframes contactLinkReveal {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
 .contact-foot {
   font-family: var(--font-mono);
   font-size: 11px;
@@ -993,10 +1014,12 @@ body.intro-active #hero-canvas {
   .mobile-menu,
   .filter-btn,
   .contact-cta-btn,
+  .contact-link,
   button {
     animation: none !important;
     transition: opacity 0.2s ease !important;
     transform: none !important;
+    opacity: 1 !important;
   }
 }
 

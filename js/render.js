@@ -87,7 +87,7 @@
 
     var pillData = [
       { text: id.name, cls: 'p-beige' },
-      { text: id.age, cls: 'p-fern' },
+      { text: id.year, cls: 'p-fern' },
       { text: id.course, cls: 'p-lav' },
       { text: id.location, cls: 'p-grey' },
     ];
@@ -320,11 +320,12 @@
         { label: 'LinkedIn', href: lnk.linkedin },
         { label: 'Instagram', href: lnk.instagram },
         { label: 'Facebook', href: lnk.facebook },
-        { label: id.phoneDisplay, href: 'tel:' + id.phone, local: true },
-      ].forEach(function (l) {
+      ].forEach(function (l, i) {
         var a = el('a', 'contact-link', l.label);
         a.href = l.href;
-        if (!l.local) { a.target = '_blank'; a.rel = 'noopener'; }
+        a.target = '_blank';
+        a.rel = 'noopener';
+        a.style.setProperty('--i', i);
         linkWrap.appendChild(a);
       });
     }
