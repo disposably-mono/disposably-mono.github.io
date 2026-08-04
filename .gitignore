@@ -1,0 +1,17 @@
+# Playwright
+.playwright-mcp/
+
+# Screenshots and docs
+screenshots/
+docs/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor
+*.swp
+*.swo
+*~
+.vscode/
+.idea/

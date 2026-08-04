@@ -1,108 +1,27 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Mono — Portfolio</title>
-  <meta name="description" content="One problem at a time. CS student, builder-in-progress." />
-  <meta property="og:title" content="Mono — Portfolio" />
-  <meta property="og:description" content="CS student and builder-in-progress." />
-  <meta property="og:type" content="website" />
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%2334312D'/><text x='50%25' y='54%25' font-family='Georgia,serif' font-size='20' fill='%23EAF0CE' text-anchor='middle' dominant-baseline='middle'>M</text></svg>" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@400;500&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/style.css" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mono — Portfolio</title>
+<meta name="description" content="Portfolio renovation in progress. Check back soon.">
+<meta property="og:title" content="Mono — Portfolio">
+<meta property="og:description" content="Portfolio renovation in progress.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%230d4a2a'/><text x='50%25' y='54%25' font-family='Georgia,serif' font-size='20' fill='%2364c896' text-anchor='middle' dominant-baseline='middle'>M</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Architects+Daughter&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <div id="scroll-progress" aria-hidden="true"></div>
-  <div class="mobile-menu" id="mobile-menu" role="dialog" aria-label="Mobile navigation"></div>
 
-  <nav id="nav" role="navigation" aria-label="Main navigation">
-    <div class="nav-logo" id="nav-logo"></div>
-    <ul class="nav-links" id="nav-links"></ul>
-    <button class="nav-toggle" id="theme-toggle" onclick="toggleTheme()" aria-label="Toggle color mode">&#9728; Light</button>
-    <button class="nav-hamburger" id="nav-hamburger" onclick="toggleMobileMenu()" aria-label="Open navigation" aria-expanded="false">
-      <span></span><span></span><span></span>
-    </button>
-  </nav>
+<div class="wrapper" id="wrapper">
+  <div class="mat" id="mat"></div>
+  <div class="center-text">Portfolio Rennovation In Progress</div>
+  <svg class="overlay" id="overlay"></svg>
+</div>
 
-  <section id="hero" aria-label="Hero">
-    <canvas id="hero-canvas" aria-hidden="true"></canvas>
-    <div class="merge-toast" id="merge-toast"></div>
-    <div class="hero-content">
-      <div class="hero-eyebrow"></div>
-      <div class="hero-name"></div>
-      <p class="hero-tagline"></p>
-      <div class="hero-hint-inline" aria-hidden="true"></div>
-    </div>
-    <div class="hero-cta" aria-label="Identity">
-      <div class="hero-cta-line"></div>
-      <div class="hero-pills"></div>
-    </div>
-  </section>
-
-  <section id="about" class="section" aria-labelledby="about-heading-text">
-    <div class="container">
-      <div class="section-intro reveal" id="intro-about"><span class="t-label"></span></div>
-      <div class="about-grid">
-        <div class="about-label-col reveal">
-          <h2 class="t-h1" id="about-heading-text">Who I<br><em style="font-style:italic; color:var(--accent)">am.</em></h2>
-          <div id="about-links" style="margin-top:32px; display:flex; flex-direction:column; gap:10px;"></div>
-        </div>
-        <div class="about-text-col reveal" style="transition-delay:0.1s">
-          <div id="about-bio"></div>
-          <div class="about-status" id="about-status"></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="skills" class="section" aria-labelledby="skills-heading">
-    <div class="container">
-      <div class="section-intro reveal" id="intro-skills"><span class="t-label"></span></div>
-      <div class="skills-grid"></div>
-    </div>
-  </section>
-
-  <section id="projects" class="section" aria-labelledby="projects-heading">
-    <div class="container">
-      <div class="section-intro reveal" id="intro-projects"><span class="t-label"></span></div>
-      <div class="project-filters reveal" id="project-filters" role="group" aria-label="Filter projects"></div>
-      <div class="projects-grid" id="projects-grid"></div>
-    </div>
-  </section>
-
-  <section id="learning" class="section" aria-labelledby="learning-heading">
-    <div class="container">
-      <div class="section-intro reveal" id="intro-learning"><span class="t-label"></span></div>
-    </div>
-    <div class="learning-ticker-wrap reveal">
-      <div class="learning-ticker" id="learning-ticker"></div>
-    </div>
-  </section>
-
-  <section id="notes" class="section" aria-labelledby="notes-heading">
-    <div class="container">
-      <div class="section-intro reveal" id="intro-notes"><span class="t-label"></span></div>
-      <div class="notes-list" id="notes-list"></div>
-    </div>
-  </section>
-
-  <footer id="contact" aria-labelledby="contact-heading">
-    <div class="contact-inner">
-      <h2 class="contact-headline reveal" id="contact-heading"></h2>
-      <p class="t-body reveal" id="contact-sub" style="color:var(--lavender-grey); max-width:360px; text-align:center; transition-delay:0.1s;"></p>
-      <a class="contact-cta-btn reveal" id="contact-cta" style="transition-delay:0.15s;"></a>
-      <div class="contact-links reveal" id="contact-links" style="transition-delay:0.2s;"></div>
-      <p class="contact-foot reveal" id="contact-foot" style="transition-delay:0.3s;"></p>
-    </div>
-  </footer>
-
-  <script src="js/data.js"></script>
-  <script src="js/render.js"></script>
-  <script src="js/main.js"></script>
-  <script src="js/particles.js"></script>
-  <script src="js/intro-loader.js"></script>
+<script src="js/cutting-mat.js"></script>
 </body>
 </html>
