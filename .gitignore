@@ -1,15 +1,21 @@
-# Playwright
+# Dependencies
+node_modules/
+
+# Local tooling and worktrees
 .playwright-mcp/
+.superpowers/
+.worktrees/
 
-# Screenshots and docs
-screenshots/
+# Local project artifacts
+.docs/
 docs/
+.screenshots/
 
-# OS
+# Operating system files
 .DS_Store
 Thumbs.db
 
-# Editor
+# Editor files
 *.swp
 *.swo
 *~
