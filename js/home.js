@@ -21,7 +21,7 @@ function createHomeMat() {
       <div class="hero-panel">
         <h1 class="hero-name" data-animate="fade-up" data-animate-delay="0.1">
           Mono
-          <svg class="hero-underline" width="300" height="10" viewBox="0 0 300 10">
+          <svg class="hero-underline" width="300" height="10" viewBox="0 0 300 10" preserveAspectRatio="none">
             <line class="draw-line" data-animate-delay="0.35" x1="4" y1="5" x2="296" y2="5" stroke="#fff" stroke-width="3" stroke-linecap="round"/>
           </svg>
         </h1>
