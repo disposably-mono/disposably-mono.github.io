@@ -64,7 +64,10 @@ function createProjectsMat() {
           </div>
           <div class="project-info">
             <p class="project-desc">${item.description}</p>
-            <div class="project-skills">${skills}</div>
+            <div class="project-skills">
+              <span class="project-skills-label">Skills</span>
+              <div class="project-skills-chips">${skills}</div>
+            </div>
           </div>
         </div>
       </article>
