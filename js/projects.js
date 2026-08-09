@@ -8,39 +8,43 @@ const PROJECTS_DATA = {
   y: -0.4,
   items: [
     {
-      title: 'Halal Finder',
+      title: 'halal.',
       openSource: true,
-      deployUrl: '#',
-      githubUrl: '#',
-      description: 'A directory app for finding halal-certified restaurants nearby, with filters for cuisine and distance.',
+      deployUrl: null,
+      githubUrl: 'https://github.com/disposably-mono/halal.',
+      description: 'A school election platform built for the OLPS Commission on Elections — covering the full election lifecycle from candidate and voter setup to anonymous ballots, live turnout, and certified results.',
       skills: [
-        { label: 'Framework', value: 'React Native' },
-        { label: 'Backend', value: 'Node.js' },
-        { label: 'Database', value: 'PostgreSQL' },
+        { label: 'Framework', value: 'Next.js 16' },
+        { label: 'Language', value: 'TypeScript' },
+        { label: 'Database', value: 'PostgreSQL 16' },
+        { label: 'ORM', value: 'Prisma 7' },
+        { label: 'Auth', value: 'Auth.js' },
       ],
       media: [
-        { caption: 'Home screen' },
-        { caption: 'Search & filters' },
-        { caption: 'Restaurant detail' },
-        { caption: 'Map view' },
+        { src: 'public/projects/halal/hero.png', caption: 'Voter homepage' },
+        { src: 'public/projects/halal/ballot.png', caption: 'Official ballot' },
+        { src: 'public/projects/halal/monitor.png', caption: 'Live results monitor' },
+        { src: 'public/projects/halal/control.png', caption: 'Election control panel' },
       ],
     },
     {
-      title: 'OLPS Site',
-      openSource: false,
-      deployUrl: '#',
-      githubUrl: null,
-      description: 'Parish website redesign with an events calendar, bulletin archive, and a donation portal.',
+      title: 'Mnemo',
+      openSource: true,
+      deployUrl: null,
+      githubUrl: 'https://github.com/disposably-mono/Mnemo-Skill',
+      description: 'A Claude Code skill and Python toolkit that turns study material into source-grounded Anki flashcards — planning learning objectives before generating cloze, basic, and image-occlusion cards, then importing them straight into Anki.',
       skills: [
-        { label: 'Framework', value: 'Next.js' },
-        { label: 'Styling', value: 'Tailwind CSS' },
-        { label: 'CMS', value: 'Sanity CMS' },
+        { label: 'Type', value: 'Claude Code Skill' },
+        { label: 'Language', value: 'Python' },
+        { label: 'Integration', value: 'AnkiConnect' },
+        { label: 'Fallback', value: 'genanki (.apkg)' },
+        { label: 'Testing', value: 'Pytest' },
       ],
       media: [
-        { caption: 'Homepage' },
-        { caption: 'Events calendar' },
-        { caption: 'Bulletin archive' },
-        { caption: 'Donation portal' },
+        { src: 'public/projects/mnemo/pipeline.svg', caption: 'Ingest → generate → import pipeline' },
+        { src: 'public/projects/mnemo/terminal-ingest.svg', caption: 'mnemo-ingest' },
+        { src: 'public/projects/mnemo/terminal-generate.svg', caption: 'mnemo-generate' },
+        { src: 'public/projects/mnemo/terminal-import.svg', caption: 'mnemo-import' },
       ],
     },
   ],
@@ -71,6 +75,10 @@ function buildStackTable(rawSkills) {
   return `<table class="stack-table two-col"><tbody>${rows.join('')}</tbody></table>`;
 }
 
+function mediaPicMarkup(m) {
+  return m.src ? `<img class="media-img" src="${m.src}" alt="${m.caption}" loading="lazy">` : 'Pic';
+}
+
 function createProjectsMat() {
   const section = document.createElement('section');
   section.className = 'mat';
@@ -97,7 +105,7 @@ function createProjectsMat() {
 
     const thumbs = thumbMedia.map((m) => `
       <div class="media-card thumb" tabindex="0" role="button" aria-label="Show ${m.caption}">
-        <div class="media-pic">Pic</div>
+        <div class="media-pic">${mediaPicMarkup(m)}</div>
         <div class="media-caption">${m.caption}</div>
       </div>
     `).join('');
@@ -112,7 +120,7 @@ function createProjectsMat() {
           <div class="project-body">
             <div class="project-media">
               <div class="media-card main">
-                <div class="media-pic">Pic</div>
+                <div class="media-pic">${mediaPicMarkup(mainMedia)}</div>
                 <div class="media-caption">${mainMedia.caption}</div>
               </div>
               <div class="project-thumbs">${thumbs}</div>
@@ -184,6 +192,12 @@ function swapMediaCards(mainCard, thumbCard) {
 
   const mainRect = mainCard.getBoundingClientRect();
   const thumbRect = thumbCard.getBoundingClientRect();
+
+  const mainPic = mainCard.querySelector('.media-pic');
+  const thumbPic = thumbCard.querySelector('.media-pic');
+  const swapPic = mainPic.innerHTML;
+  mainPic.innerHTML = thumbPic.innerHTML;
+  thumbPic.innerHTML = swapPic;
 
   const mainCaption = mainCard.querySelector('.media-caption');
   const thumbCaption = thumbCard.querySelector('.media-caption');
