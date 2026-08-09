@@ -18,4 +18,5 @@ document.addEventListener('DOMContentLoaded', () => {
 
 window.addEventListener('resize', () => {
   document.querySelectorAll('.mat').forEach(buildCuttingMat);
+  snapToCurrentMat();
 });
