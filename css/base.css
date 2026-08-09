@@ -35,7 +35,7 @@ body {
 }
 
 .mat[data-mat="home"]     { background: #0d4a2a; --line-tint: rgba(140,220,170,0.55); --line-tint-strong: #8cdcaa; }
-.mat[data-mat="projects"] { background: #16305c; --line-tint: rgba(140,190,255,0.55); --line-tint-strong: #8cc0ff; }
+.mat[data-mat="projects"] { background: #202f4d; --line-tint: rgba(154,182,232,0.5); --line-tint-strong: #9ab6e8; }
 .mat[data-mat="contact"]  { background: #0a0a0a; --line-tint: rgba(255,255,255,0.22); --line-tint-strong: #ffffff; }
 
 .cutting-grid {
