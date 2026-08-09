@@ -23,15 +23,6 @@ const PROJECTS_DATA = {
   ],
 };
 
-const ARROW_ICON = `
-  <svg class="scribble-arrow-icon" viewBox="0 0 64 64" fill="none" aria-hidden="true">
-    <path d="M52 30c-10 1-19 3-28 6-4 1.5-7 3-10 5" stroke="#151515" stroke-width="3" stroke-linecap="round"/>
-    <path d="M50 34c-9 1-18 3-26 6-3 1-6 2-9 4" stroke="#151515" stroke-width="2" stroke-linecap="round" opacity="0.55"/>
-    <path d="M24 27c-5 3-9 6-12 10" stroke="#151515" stroke-width="3" stroke-linecap="round"/>
-    <path d="M24 43c-5-3-9-6-12-10" stroke="#151515" stroke-width="3" stroke-linecap="round"/>
-  </svg>
-`;
-
 function createProjectsMat() {
   const section = document.createElement('section');
   section.className = 'mat';
@@ -41,26 +32,28 @@ function createProjectsMat() {
   section.style.setProperty('--x', PROJECTS_DATA.x);
   section.style.setProperty('--y', PROJECTS_DATA.y);
 
-  const cards = PROJECTS_DATA.items.map((item, i) => {
+  const items = PROJECTS_DATA.items;
+
+  const cards = items.map((item, i) => {
     const delay = (0.1 + i * 0.15).toFixed(2);
-    const badge = `<span class="project-badge ${item.openSource ? 'open' : 'closed'}">${item.openSource ? 'Open Source' : 'Closed Source'}</span>`;
-    const deployLink = item.deployUrl
-      ? `<a class="project-link" href="${item.deployUrl}" target="_blank" rel="noopener">Deploy ↗</a>`
-      : '';
-    const githubLink = item.githubUrl
-      ? `<a class="project-link" href="${item.githubUrl}" target="_blank" rel="noopener">GitHub ↗</a>`
+    const badge = item.openSource
+      ? `<a class="project-badge open" href="${item.githubUrl}" target="_blank" rel="noopener">Open Source</a>`
+      : `<span class="project-badge closed">Closed Source</span>`;
+    const deployPill = item.deployUrl
+      ? `<a class="project-badge deploy" href="${item.deployUrl}" target="_blank" rel="noopener">Deployment ↗</a>`
       : '';
     const skills = item.skills.map((skill) => `<span class="skill-chip">${skill}</span>`).join('');
+    const prevHidden = i === 0 ? ' is-hidden' : '';
+    const nextHidden = i === items.length - 1 ? ' is-hidden' : '';
 
     return `
       <article class="project-card" data-animate="fade-up" data-animate-delay="${delay}">
         <div class="project-sheet">
           <div class="project-header">
             <h2 class="project-title">${item.title}</h2>
-            <div class="project-meta">
+            <div class="project-pills">
               ${badge}
-              ${deployLink}
-              ${githubLink}
+              ${deployPill}
             </div>
           </div>
           <div class="project-body">
@@ -80,6 +73,8 @@ function createProjectsMat() {
               </div>
             </div>
           </div>
+          <button type="button" class="sheet-nav prev${prevHidden}" data-dir="prev">&larr; Previous project</button>
+          <button type="button" class="sheet-nav next${nextHidden}" data-dir="next">Next project &rarr;</button>
         </div>
       </article>
     `;
@@ -89,8 +84,6 @@ function createProjectsMat() {
     <div class="cutting-grid"></div>
     <svg class="cutting-overlay"></svg>
     <div class="projects-row">${cards}</div>
-    <button type="button" class="project-nav-arrow prev" aria-label="Previous project">${ARROW_ICON}</button>
-    <button type="button" class="project-nav-arrow next" aria-label="Next project">${ARROW_ICON}</button>
   `;
 
   buildCuttingMat(section);
@@ -100,24 +93,12 @@ function createProjectsMat() {
 
 function wireProjectsNav(section) {
   const row = section.querySelector('.projects-row');
-  const prevBtn = section.querySelector('.project-nav-arrow.prev');
-  const nextBtn = section.querySelector('.project-nav-arrow.next');
 
-  const updateArrows = () => {
-    const max = row.scrollWidth - row.clientWidth;
-    prevBtn.classList.toggle('is-hidden', row.scrollLeft <= 4);
-    nextBtn.classList.toggle('is-hidden', row.scrollLeft >= max - 4);
-  };
+  row.addEventListener('click', (e) => {
+    const btn = e.target.closest('.sheet-nav');
+    if (!btn || btn.classList.contains('is-hidden')) return;
 
-  prevBtn.addEventListener('click', () => {
-    row.scrollBy({ left: -row.clientWidth, behavior: 'smooth' });
+    const dir = btn.dataset.dir === 'next' ? 1 : -1;
+    row.scrollBy({ left: dir * row.clientWidth, behavior: 'smooth' });
   });
-
-  nextBtn.addEventListener('click', () => {
-    row.scrollBy({ left: row.clientWidth, behavior: 'smooth' });
-  });
-
-  row.addEventListener('scroll', updateArrows);
-  window.addEventListener('resize', updateArrows);
-  requestAnimationFrame(updateArrows);
 }
