@@ -296,6 +296,23 @@
   border-right: 1px solid rgba(60, 50, 35, 0.15);
 }
 
+.stack-table.two-col td:first-child,
+.stack-table.two-col td.stack-pair {
+  font-weight: 600;
+  color: rgba(60, 50, 35, 0.55);
+  width: 22%;
+  border-right: 1px solid rgba(60, 50, 35, 0.15);
+}
+
+.stack-table.two-col td.stack-pair {
+  border-left: 1px solid rgba(60, 50, 35, 0.15);
+  padding-left: 16px;
+}
+
+.stack-table.two-col td:nth-child(2) {
+  width: 28%;
+}
+
 .sheet-nav {
   position: absolute;
   bottom: 14px;

@@ -1,3 +1,6 @@
+const STACK_MAX_ITEMS = 10;
+const STACK_TWO_COL_THRESHOLD = 5;
+
 const PROJECTS_DATA = {
   key: 'projects',
   label: 'Projects',
@@ -43,6 +46,31 @@ const PROJECTS_DATA = {
   ],
 };
 
+function buildStackTable(rawSkills) {
+  const skills = rawSkills.slice(0, STACK_MAX_ITEMS);
+  const twoCol = skills.length > STACK_TWO_COL_THRESHOLD;
+
+  if (!twoCol) {
+    const rows = skills.map((s) => `<tr><td>${s.label}</td><td>${s.value}</td></tr>`).join('');
+    return `<table class="stack-table"><tbody>${rows}</tbody></table>`;
+  }
+
+  const rows = [];
+  for (let i = 0; i < skills.length; i += 2) {
+    const a = skills[i];
+    const b = skills[i + 1];
+    rows.push(`
+      <tr>
+        <td>${a.label}</td>
+        <td>${a.value}</td>
+        <td class="stack-pair">${b ? b.label : ''}</td>
+        <td>${b ? b.value : ''}</td>
+      </tr>
+    `);
+  }
+  return `<table class="stack-table two-col"><tbody>${rows.join('')}</tbody></table>`;
+}
+
 function createProjectsMat() {
   const section = document.createElement('section');
   section.className = 'mat';
@@ -62,7 +90,7 @@ function createProjectsMat() {
     const deployTag = item.deployUrl
       ? `(<a class="project-tag deploy" href="${item.deployUrl}" target="_blank" rel="noopener">Deployment</a>)`
       : '';
-    const skillRows = item.skills.map((s) => `<tr><td>${s.label}</td><td>${s.value}</td></tr>`).join('');
+    const stackTable = buildStackTable(item.skills);
     const prevHidden = i === 0 ? ' is-hidden' : '';
     const nextHidden = i === items.length - 1 ? ' is-hidden' : '';
     const [mainMedia, ...thumbMedia] = item.media;
@@ -98,11 +126,7 @@ function createProjectsMat() {
               </div>
               <div class="info-card stack">
                 <div class="info-card-title">Stack</div>
-                <div class="info-card-body">
-                  <table class="stack-table">
-                    <tbody>${skillRows}</tbody>
-                  </table>
-                </div>
+                <div class="info-card-body">${stackTable}</div>
               </div>
             </div>
           </div>
