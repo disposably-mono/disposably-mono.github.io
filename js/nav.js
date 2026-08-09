@@ -21,7 +21,13 @@ function initNav(matsData) {
       nav.querySelectorAll('.nav-link').forEach((l) => l.classList.remove('cur'));
       btn.classList.add('cur');
 
-      panTo(data.key, { onComplete: () => playEntranceAnimation(data.key) });
+      nav.classList.add('is-panning');
+      panTo(data.key, {
+        onComplete: () => {
+          nav.classList.remove('is-panning');
+          playEntranceAnimation(data.key);
+        },
+      });
     });
 
     nav.appendChild(btn);

@@ -53,7 +53,7 @@ body {
 
 #nav {
   position: fixed;
-  top: 44px;
+  top: 52px;
   left: 50%;
   transform: translateX(-50%);
   z-index: 10;
@@ -65,6 +65,12 @@ body {
   border-radius: 3px;
   background: rgba(0, 0, 0, 0.18);
   backdrop-filter: blur(2px);
+  transition: opacity 0.2s ease;
+}
+
+#nav.is-panning {
+  opacity: 0;
+  pointer-events: none;
 }
 
 .nav-link {
