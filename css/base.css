@@ -53,8 +53,9 @@ body {
 
 #nav {
   position: fixed;
-  top: 85px;
-  right: 85px;
+  top: 44px;
+  left: 50%;
+  transform: translateX(-50%);
   z-index: 10;
   display: flex;
   align-items: baseline;
