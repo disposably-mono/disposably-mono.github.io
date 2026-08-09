@@ -1,0 +1,12 @@
+{
+  "name": "cutting-mat-portfolio",
+  "private": true,
+  "version": "0.0.0",
+  "description": "Dev/test tooling manifest only — the shipped site has zero build step (static HTML/CSS/JS, GSAP via CDN).",
+  "scripts": {
+    "test:e2e": "playwright test tests/e2e/navigation.spec.js"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.61.1"
+  }
+}
