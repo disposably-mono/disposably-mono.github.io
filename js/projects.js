@@ -21,8 +21,8 @@ const PROJECTS_DATA = {
         { label: 'Auth', value: 'Auth.js' },
       ],
       media: [
-        { src: 'public/projects/halal/hero.png', caption: 'Voter homepage' },
-        { src: 'public/projects/halal/ballot.png', caption: 'Official ballot' },
+        { src: 'public/projects/halal/hero.jpg', caption: 'Voter homepage' },
+        { src: 'public/projects/halal/results.jpg', caption: 'Public results & receipt verification' },
         { src: 'public/projects/halal/monitor.png', caption: 'Live results monitor' },
         { src: 'public/projects/halal/control.png', caption: 'Election control panel' },
       ],
