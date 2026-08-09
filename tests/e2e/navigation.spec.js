@@ -83,6 +83,32 @@ test('entrance animation fades up the hero name after load, reduced motion shows
   expect(Number(finalOpacity)).toBe(1);
 });
 
+test('camera stays aligned with the active mat after a window resize', async ({ page }) => {
+  await page.setViewportSize({ width: 1280, height: 720 });
+  await page.goto('/');
+
+  await page.locator('.nav-link[data-target="contact"]').click();
+  await page.waitForTimeout(1300); // longer than PAN_DURATION
+
+  await page.setViewportSize({ width: 900, height: 600 });
+  // Give the resize handler a tick to run.
+  await page.waitForTimeout(100);
+
+  const box = await page.locator('.mat[data-mat="contact"]').boundingBox();
+  expect(Math.round(box.x)).toBe(0);
+  expect(Math.round(box.y)).toBe(0);
+});
+
+test('reduced motion draw-line renders solid, not dotted', async ({ page }) => {
+  await page.emulateMedia({ reducedMotion: 'reduce' });
+  await page.goto('/');
+
+  const line = page.locator('.mat[data-mat="home"] .draw-line');
+  const dasharray = await line.evaluate((el) => getComputedStyle(el).strokeDasharray);
+
+  expect(dasharray).not.toBe('1px');
+});
+
 test('projects mat scrolls horizontally, not vertically', async ({ page }) => {
   await page.goto('/');
   await page.locator('.nav-link[data-target="projects"]').click();
