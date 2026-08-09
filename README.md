@@ -1,6 +1,7 @@
 # disposably-mono.github.io
 
-Personal portfolio site — currently showing a "renovation in progress" cutting mat placeholder.
+Personal portfolio site — a "desk of cutting mats" concept where Home, Projects,
+and Contact are each a mat on a shared desk, navigated via a GSAP camera pan.
 
 ## Structure
 
@@ -14,6 +15,9 @@ js/camera-pan.js           GSAP desk pan between mats
 js/entrance-animations.js  Per-mat entrance timeline, reduced-motion handling
 js/nav.js                  Nav construction + click wiring
 js/main.js                 Bootstrap
+tests/                     Playwright E2E tests
+playwright.config.js       Playwright configuration
+package.json                Dev/test tooling manifest (no build step for the site itself)
 ```
 
 ## Local Development
