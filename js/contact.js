@@ -10,6 +10,7 @@ function createContactMat() {
   const section = document.createElement('section');
   section.className = 'mat';
   section.dataset.mat = CONTACT_DATA.key;
+  section.dataset.texture = 'lines';
   section.dataset.x = CONTACT_DATA.x;
   section.dataset.y = CONTACT_DATA.y;
   section.style.setProperty('--x', CONTACT_DATA.x);

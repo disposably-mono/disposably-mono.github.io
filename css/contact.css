@@ -1,15 +1,17 @@
 .contact-tablet {
   position: absolute;
   left: 50%;
-  top: 54%;
+  top: 52%;
   transform: translate(-50%, -50%);
   z-index: 2;
-  width: 260px;
-  height: 180px;
+  width: 68%;
+  height: 68%;
+  max-width: 900px;
+  max-height: 620px;
   background: #1a1a1a;
-  border-radius: 10px;
-  padding: 12px;
-  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.5);
+  border-radius: 18px;
+  padding: 2.4%;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
 }
 
 .contact-screen {
@@ -27,13 +29,13 @@
 .contact-heading {
   font-family: var(--font-display);
   font-weight: 700;
-  font-size: 24px;
+  font-size: clamp(24px, 4vw, 48px);
   color: #222;
 }
 
 .contact-links {
   font-family: var(--font-body);
-  font-size: 13px;
+  font-size: clamp(13px, 1.6vw, 18px);
   letter-spacing: 0.03em;
   color: #555;
 }
