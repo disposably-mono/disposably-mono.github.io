@@ -4,24 +4,34 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Mono — Portfolio</title>
-<meta name="description" content="Portfolio renovation in progress. Check back soon.">
+<meta name="description" content="Mono's portfolio.">
 <meta property="og:title" content="Mono — Portfolio">
-<meta property="og:description" content="Portfolio renovation in progress.">
 <meta property="og:type" content="website">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%230d4a2a'/><text x='50%25' y='54%25' font-family='Georgia,serif' font-size='20' fill='%2364c896' text-anchor='middle' dominant-baseline='middle'>M</text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Architects+Daughter&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/home.css">
+<link rel="stylesheet" href="css/projects.css">
+<link rel="stylesheet" href="css/contact.css">
 </head>
 <body>
 
-<div class="wrapper" id="wrapper">
-  <div class="mat" id="mat"></div>
-  <div class="center-text">Portfolio Rennovation In Progress</div>
-  <svg class="overlay" id="overlay"></svg>
+<nav id="nav"></nav>
+
+<div id="viewport">
+  <div id="desk"></div>
 </div>
 
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
 <script src="js/cutting-mat.js"></script>
+<script src="js/camera-pan.js"></script>
+<script src="js/entrance-animations.js"></script>
+<script src="js/home.js"></script>
+<script src="js/projects.js"></script>
+<script src="js/contact.js"></script>
+<script src="js/nav.js"></script>
+<script src="js/main.js"></script>
 </body>
 </html>
