@@ -23,6 +23,15 @@ const PROJECTS_DATA = {
   ],
 };
 
+const ARROW_ICON = `
+  <svg class="scribble-arrow-icon" viewBox="0 0 64 64" fill="none" aria-hidden="true">
+    <path d="M52 30c-10 1-19 3-28 6-4 1.5-7 3-10 5" stroke="#151515" stroke-width="3" stroke-linecap="round"/>
+    <path d="M50 34c-9 1-18 3-26 6-3 1-6 2-9 4" stroke="#151515" stroke-width="2" stroke-linecap="round" opacity="0.55"/>
+    <path d="M24 27c-5 3-9 6-12 10" stroke="#151515" stroke-width="3" stroke-linecap="round"/>
+    <path d="M24 43c-5-3-9-6-12-10" stroke="#151515" stroke-width="3" stroke-linecap="round"/>
+  </svg>
+`;
+
 function createProjectsMat() {
   const section = document.createElement('section');
   section.className = 'mat';
@@ -80,8 +89,35 @@ function createProjectsMat() {
     <div class="cutting-grid"></div>
     <svg class="cutting-overlay"></svg>
     <div class="projects-row">${cards}</div>
+    <button type="button" class="project-nav-arrow prev" aria-label="Previous project">${ARROW_ICON}</button>
+    <button type="button" class="project-nav-arrow next" aria-label="Next project">${ARROW_ICON}</button>
   `;
 
   buildCuttingMat(section);
+  wireProjectsNav(section);
   return section;
+}
+
+function wireProjectsNav(section) {
+  const row = section.querySelector('.projects-row');
+  const prevBtn = section.querySelector('.project-nav-arrow.prev');
+  const nextBtn = section.querySelector('.project-nav-arrow.next');
+
+  const updateArrows = () => {
+    const max = row.scrollWidth - row.clientWidth;
+    prevBtn.classList.toggle('is-hidden', row.scrollLeft <= 4);
+    nextBtn.classList.toggle('is-hidden', row.scrollLeft >= max - 4);
+  };
+
+  prevBtn.addEventListener('click', () => {
+    row.scrollBy({ left: -row.clientWidth, behavior: 'smooth' });
+  });
+
+  nextBtn.addEventListener('click', () => {
+    row.scrollBy({ left: row.clientWidth, behavior: 'smooth' });
+  });
+
+  row.addEventListener('scroll', updateArrows);
+  window.addEventListener('resize', updateArrows);
+  requestAnimationFrame(updateArrows);
 }
