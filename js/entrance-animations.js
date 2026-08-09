@@ -8,7 +8,7 @@ function playEntranceAnimation(matKey) {
 
   if (reduceMotion) {
     gsap.set(fadeEls, { opacity: 1, y: 0 });
-    drawEls.forEach((el) => gsap.set(el, { strokeDashoffset: 0 }));
+    drawEls.forEach((el) => gsap.set(el, { strokeDasharray: 'none', strokeDashoffset: 0 }));
     return;
   }
 
