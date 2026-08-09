@@ -20,7 +20,7 @@ function createProjectsMat() {
 
   const cards = PROJECTS_DATA.items.map((item, i) => `
     <article class="project-card" data-animate="fade-up" data-animate-delay="${(0.1 + i * 0.15).toFixed(2)}">
-      <h3 class="project-title">${item.title}</h3>
+      <h2 class="project-title">${item.title}</h2>
       <div class="project-grid">
         <div class="project-col">
           <div class="project-block pic">Pic</div>

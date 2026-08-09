@@ -20,7 +20,7 @@ function createContactMat() {
     <svg class="cutting-overlay"></svg>
     <div class="contact-tablet" data-animate="fade-up" data-animate-delay="0.15">
       <div class="contact-screen">
-        <div class="contact-heading">Say hi</div>
+        <h2 class="contact-heading">Say hi</h2>
         <div class="contact-links">${CONTACT_DATA.links.join(' · ')}</div>
       </div>
     </div>

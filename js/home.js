@@ -19,12 +19,12 @@ function createHomeMat() {
     <svg class="cutting-overlay"></svg>
     <div class="home-panels">
       <div class="hero-panel">
-        <div class="hero-name" data-animate="fade-up" data-animate-delay="0.1">
+        <h1 class="hero-name" data-animate="fade-up" data-animate-delay="0.1">
           Mono
           <svg class="hero-underline" width="300" height="10" viewBox="0 0 300 10">
             <line class="draw-line" data-animate-delay="0.45" x1="4" y1="5" x2="296" y2="5" stroke="#fff" stroke-width="3" stroke-linecap="round"/>
           </svg>
-        </div>
+        </h1>
         <div class="hero-desc" data-animate="fade-up" data-animate-delay="0.7">I'm a student based in the Philippines, building small things that mostly work.</div>
       </div>
       <div class="about-panel">
