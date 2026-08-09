@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 435" font-family="Inter, sans-serif">
+  <rect width="900" height="435" fill="#efe5cd"/>
+
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#4a4230"/>
+    </marker>
+  </defs>
+
+  <text x="450" y="30" text-anchor="middle" font-size="19" font-weight="700" fill="#2a2620">halal. Election Lifecycle</text>
+  <text x="450" y="49" text-anchor="middle" font-size="11" fill="rgba(60,50,35,0.6)">setup to certified public results</text>
+
+  <!-- Row 1: setup -->
+  <g font-size="14" fill="#2a2620">
+    <g>
+      <rect x="40" y="66" width="246" height="56" rx="3" fill="none" stroke="#4a4230" stroke-width="1.5" stroke-dasharray="4 3"/>
+      <text x="163" y="90" text-anchor="middle" font-weight="600">Candidates</text>
+      <text x="163" y="106" text-anchor="middle" font-size="10" fill="rgba(60,50,35,0.6)">positions + roster</text>
+    </g>
+    <line x1="286" y1="94" x2="324" y2="94" stroke="#4a4230" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+    <g>
+      <rect x="326" y="66" width="246" height="56" rx="3" fill="none" stroke="#4a4230" stroke-width="1.5" stroke-dasharray="4 3"/>
+      <text x="449" y="90" text-anchor="middle" font-weight="600">Voters</text>
+      <text x="449" y="106" text-anchor="middle" font-size="10" fill="rgba(60,50,35,0.6)">CSV import or manual</text>
+    </g>
+    <line x1="572" y1="94" x2="610" y2="94" stroke="#4a4230" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+    <g>
+      <rect x="612" y="66" width="246" height="56" rx="3" fill="none" stroke="#4a4230" stroke-width="1.5" stroke-dasharray="4 3"/>
+      <text x="735" y="90" text-anchor="middle" font-weight="600">Control</text>
+      <text x="735" y="106" text-anchor="middle" font-size="10" fill="rgba(60,50,35,0.6)">schedule or open manually</text>
+    </g>
+  </g>
+
+  <path d="M735 122 V150 H315 V168" fill="none" stroke="#4a4230" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- Row 2: live voting -->
+  <g font-size="14" fill="#2a2620">
+    <g>
+      <rect x="215" y="170" width="200" height="56" rx="3" fill="#4a4230"/>
+      <text x="315" y="194" text-anchor="middle" font-weight="600" fill="#f4ecd8">Polls Open</text>
+      <text x="315" y="210" text-anchor="middle" font-size="10" fill="rgba(244,236,216,0.75)">one anonymous ballot</text>
+    </g>
+    <line x1="415" y1="198" x2="433" y2="198" stroke="#4a4230" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+    <g>
+      <rect x="435" y="170" width="140" height="56" rx="3" fill="none" stroke="#4a4230" stroke-width="1.5" stroke-dasharray="4 3"/>
+      <text x="505" y="194" text-anchor="middle" font-weight="600">Vote</text>
+      <text x="505" y="210" text-anchor="middle" font-size="10" fill="rgba(60,50,35,0.6)">control number</text>
+    </g>
+    <line x1="575" y1="198" x2="593" y2="198" stroke="#4a4230" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+    <g>
+      <rect x="595" y="170" width="170" height="56" rx="3" fill="none" stroke="#4a4230" stroke-width="1.5" stroke-dasharray="4 3"/>
+      <text x="680" y="194" text-anchor="middle" font-weight="600">Close &amp; Certify</text>
+      <text x="680" y="210" text-anchor="middle" font-size="10" fill="rgba(60,50,35,0.6)">freeze tally, audit key</text>
+    </g>
+  </g>
+
+  <path d="M680 226 V254 H495 V268" fill="none" stroke="#4a4230" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <g font-size="14" fill="#2a2620">
+    <rect x="345" y="270" width="300" height="50" rx="3" fill="none" stroke="#4a4230" stroke-width="1.5"/>
+    <text x="495" y="292" text-anchor="middle" font-weight="600">Public Results</text>
+    <text x="495" y="308" text-anchor="middle" font-size="10" fill="rgba(60,50,35,0.6)">receipt-verifiable, per-ballot anonymous</text>
+  </g>
+
+  <text x="450" y="400" text-anchor="middle" font-size="11" fill="rgba(60,50,35,0.5)">Permissions are enforced server-side, not just hidden in the UI</text>
+</svg>

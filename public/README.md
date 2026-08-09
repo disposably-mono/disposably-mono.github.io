@@ -10,11 +10,11 @@ public/
   resume/
     resume.pdf          — restored from git history (see below)
   projects/
-    halal/               — screenshots of github.com/disposably-mono/halal.
-      hero.jpg             Voter homepage
-      results.jpg           Public "Final Results" page (audit fingerprint + receipt verification)
-      monitor.png            Live results / turnout monitor (admin)
-      control.png              Election status & schedule panel (admin)
+    halal/               — github.com/disposably-mono/halal.
+      hero.jpg             Voter homepage screenshot
+      dashboard.png         Admin elections dashboard screenshot
+      maker.jpg               "About the maker" screenshot
+      pipeline.svg               Hand-authored diagram of the setup -> vote -> certify lifecycle
     mnemo/                — github.com/disposably-mono/Mnemo-Skill
       pipeline.svg          Hand-authored diagram of the ingest -> ... -> sync pipeline
       terminal-ingest.svg     Mocked terminal output for `mnemo-ingest`
@@ -28,16 +28,12 @@ source of truth; this README just explains where the pixels came from.
 
 ## Provenance
 
-- **halal/** screenshots are real app screenshots, captured by firing up
-  the `halal.` repo locally (`docker compose up -d` for its Postgres db,
-  then `npm run dev`) against its existing local dev data, rather than
-  reusing outdated screenshots from an earlier UI. The four selected avoid
-  showing student names, IDs, or officer identities — homepage and public
-  results/receipt-verification need no login at all; the admin monitor and
-  control views use elections that only ever had candidate names and vote
-  counts on screen, and control.png is cropped to drop the audit-trail
-  section (which lists officer emails). No real election was opened or
-  modified to get these; the container was stopped again afterward.
+- **halal/** hero/dashboard/maker are real app screenshots, taken by the
+  project owner from a local dev run of the `halal.` repo — none show
+  student names, IDs, or officer identities. pipeline.svg is an original
+  diagram (matching mnemo's style) of the app's own documented election
+  workflow, used in place of a fourth screenshot since casting a real
+  ballot for a screenshot needs Commissioner-level access.
 - **mnemo/** has no live web UI to screenshot (it's a Claude Code skill +
   CLI toolkit, not a webapp), so its visuals are original assets built for
   this portfolio: a pipeline diagram matching the README's documented

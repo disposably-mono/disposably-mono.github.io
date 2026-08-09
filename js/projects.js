@@ -22,9 +22,9 @@ const PROJECTS_DATA = {
       ],
       media: [
         { src: 'public/projects/halal/hero.jpg', caption: 'Voter homepage' },
-        { src: 'public/projects/halal/results.jpg', caption: 'Public results & receipt verification' },
-        { src: 'public/projects/halal/monitor.png', caption: 'Live results monitor' },
-        { src: 'public/projects/halal/control.png', caption: 'Election control panel' },
+        { src: 'public/projects/halal/dashboard.png', caption: 'Admin elections dashboard' },
+        { src: 'public/projects/halal/maker.jpg', caption: 'About the maker' },
+        { src: 'public/projects/halal/pipeline.svg', caption: 'Setup → vote → certify pipeline' },
       ],
     },
     {
