@@ -1,0 +1,71 @@
+.home-panels {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  gap: 6%;
+  padding: 0 6%;
+}
+
+.hero-panel {
+  flex: 1 1 55%;
+  position: relative;
+}
+
+.hero-name {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(56px, 10vw, 130px);
+  line-height: 0.85;
+  letter-spacing: -0.02em;
+  color: #fff;
+  position: relative;
+}
+
+.hero-underline {
+  position: absolute;
+  left: 2px;
+  bottom: -8px;
+}
+
+.hero-desc {
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.8);
+  max-width: 260px;
+  margin-top: 18px;
+}
+
+.about-panel {
+  flex: 1 1 40%;
+}
+
+.about-text {
+  font-family: var(--font-body);
+  font-size: clamp(15px, 1.6vw, 19px);
+  line-height: 1.8;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.hero-tagwrap {
+  position: absolute;
+  left: 6%;
+  bottom: 12%;
+  z-index: 2;
+}
+
+.hero-tag {
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 15px;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+@media (max-width: 720px) {
+  .home-panels { flex-direction: column; justify-content: center; gap: 24px; }
+  .hero-desc { max-width: none; }
+}
