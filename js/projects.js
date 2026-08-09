@@ -21,10 +21,10 @@ const PROJECTS_DATA = {
         { label: 'Auth', value: 'Auth.js' },
       ],
       media: [
+        { src: 'public/projects/halal/pipeline.svg', caption: 'Setup → vote → certify pipeline' },
         { src: 'public/projects/halal/hero.jpg', caption: 'Voter homepage' },
         { src: 'public/projects/halal/dashboard.png', caption: 'Admin elections dashboard' },
         { src: 'public/projects/halal/maker.jpg', caption: 'About the maker' },
-        { src: 'public/projects/halal/pipeline.svg', caption: 'Setup → vote → certify pipeline' },
       ],
     },
     {
