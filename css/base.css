@@ -53,7 +53,7 @@ body {
 
 #nav {
   position: fixed;
-  top: 0;
+  top: 44px;
   left: 0;
   right: 0;
   z-index: 10;
@@ -61,10 +61,7 @@ body {
   justify-content: center;
   align-items: baseline;
   gap: 10px;
-  padding: 16px 14px 12px;
-  background: rgba(10, 10, 10, 0.55);
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
+  padding: 0 14px;
 }
 
 .nav-link {
@@ -79,6 +76,7 @@ body {
   color: rgba(255, 255, 255, 0.55);
   padding-bottom: 3px;
   border-bottom: 1.5px solid transparent;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.6);
 }
 
 .nav-link.cur {
@@ -89,8 +87,9 @@ body {
 .nav-sep {
   font-family: var(--font-body);
   font-size: 12px;
-  color: rgba(255, 255, 255, 0.25);
+  color: rgba(255, 255, 255, 0.3);
   user-select: none;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.6);
 }
 
 [data-animate="fade-up"] {

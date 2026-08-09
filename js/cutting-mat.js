@@ -27,52 +27,21 @@ function buildCuttingMat(matEl) {
   const lineTint = style.getPropertyValue('--line-tint').trim() || 'rgba(255,255,255,0.5)';
   const lineTintStrong = style.getPropertyValue('--line-tint-strong').trim() || '#ffffff';
 
-  const texture = matEl.dataset.texture || 'grid';
   const grid = matEl.querySelector('.cutting-grid');
   grid.innerHTML = '';
+  grid.style.display = 'grid';
+  grid.style.gap = gap + 'px';
+  grid.style.gridTemplateColumns = `repeat(${cols}, ${cell}px)`;
+  grid.style.gridTemplateRows = `repeat(${rows}, ${cell}px)`;
+  grid.style.padding = `${padT}px ${padL}px`;
+  grid.style.background = lineTint.replace(/[\d.]+\)$/, '0.15)');
 
-  if (texture === 'lines') {
-    grid.style.display = 'block';
-    grid.style.gap = '';
-    grid.style.gridTemplateColumns = '';
-    grid.style.gridTemplateRows = '';
-    grid.style.padding = '0';
-    grid.style.background = 'none';
-
-    for (let r = 1; r < rows; r++) {
-      const line = document.createElement('div');
-      line.className = 'cutting-line';
-      line.style.position = 'absolute';
-      line.style.left = padL + 'px';
-      line.style.right = padL + 'px';
-      line.style.top = (padT + r * step) + 'px';
-      line.style.borderTop = `1px solid ${lineTint}`;
-      grid.appendChild(line);
-    }
-  } else {
-    grid.style.display = 'grid';
-    grid.style.gap = gap + 'px';
-    grid.style.gridTemplateColumns = `repeat(${cols}, ${cell}px)`;
-    grid.style.gridTemplateRows = `repeat(${rows}, ${cell}px)`;
-    grid.style.padding = `${padT}px ${padL}px`;
-    grid.style.background = texture === 'dots' ? 'none' : lineTint.replace(/[\d.]+\)$/, '0.15)');
-
-    const total = cols * rows;
-    for (let i = 0; i < total; i++) {
-      const d = document.createElement('div');
-      d.className = 'cutting-cell';
-      if (texture === 'dots') {
-        d.style.width = '4px';
-        d.style.height = '4px';
-        d.style.borderRadius = '50%';
-        d.style.background = lineTintStrong;
-        d.style.justifySelf = 'center';
-        d.style.alignSelf = 'center';
-      } else {
-        d.style.background = 'rgba(0,0,0,0.12)';
-      }
-      grid.appendChild(d);
-    }
+  const total = cols * rows;
+  for (let i = 0; i < total; i++) {
+    const d = document.createElement('div');
+    d.className = 'cutting-cell';
+    d.style.background = 'rgba(0,0,0,0.12)';
+    grid.appendChild(d);
   }
 
   const svg = matEl.querySelector('.cutting-overlay');

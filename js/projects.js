@@ -27,7 +27,6 @@ function createProjectsMat() {
   const section = document.createElement('section');
   section.className = 'mat';
   section.dataset.mat = PROJECTS_DATA.key;
-  section.dataset.texture = 'dots';
   section.dataset.x = PROJECTS_DATA.x;
   section.dataset.y = PROJECTS_DATA.y;
   section.style.setProperty('--x', PROJECTS_DATA.x);
