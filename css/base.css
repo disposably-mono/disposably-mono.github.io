@@ -53,11 +53,11 @@ body {
 
 #nav {
   position: fixed;
-  top: 44px;
-  left: 44px;
+  top: 85px;
+  right: 85px;
   z-index: 10;
   display: flex;
-  justify-content: flex-start;
+  justify-content: flex-end;
   align-items: baseline;
   gap: 10px;
 }
