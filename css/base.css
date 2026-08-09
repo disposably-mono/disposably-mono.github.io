@@ -57,9 +57,13 @@ body {
   right: 85px;
   z-index: 10;
   display: flex;
-  justify-content: flex-end;
   align-items: baseline;
   gap: 10px;
+  padding: 9px 16px;
+  border: 1px solid var(--nav-border, rgba(255, 255, 255, 0.35));
+  border-radius: 3px;
+  background: rgba(0, 0, 0, 0.18);
+  backdrop-filter: blur(2px);
 }
 
 .nav-link {
@@ -67,27 +71,25 @@ body {
   border: none;
   cursor: pointer;
   font-family: var(--font-body);
-  font-size: 12px;
+  font-size: 11.5px;
   font-weight: 500;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
   color: rgba(255, 255, 255, 0.55);
   padding-bottom: 3px;
   border-bottom: 1.5px solid transparent;
-  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.6);
 }
 
 .nav-link.cur {
-  color: rgba(255, 255, 255, 0.95);
-  border-bottom-color: currentColor;
+  color: #fff;
+  border-bottom-color: var(--nav-accent, #fff);
 }
 
 .nav-sep {
   font-family: var(--font-body);
-  font-size: 12px;
-  color: rgba(255, 255, 255, 0.3);
+  font-size: 11.5px;
+  color: rgba(255, 255, 255, 0.25);
   user-select: none;
-  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.6);
 }
 
 [data-animate="fade-up"] {
