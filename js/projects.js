@@ -45,28 +45,30 @@ function createProjectsMat() {
 
     return `
       <article class="project-card" data-animate="fade-up" data-animate-delay="${delay}">
-        <div class="project-header">
-          <h2 class="project-title">${item.title}</h2>
-          <div class="project-meta">
-            ${badge}
-            ${deployLink}
-            ${githubLink}
-          </div>
-        </div>
-        <div class="project-body">
-          <div class="project-media">
-            <div class="project-pic">Main Picture</div>
-            <div class="project-carousel">
-              <div class="carousel-thumb"></div>
-              <div class="carousel-thumb"></div>
-              <div class="carousel-thumb"></div>
+        <div class="project-sheet">
+          <div class="project-header">
+            <h2 class="project-title">${item.title}</h2>
+            <div class="project-meta">
+              ${badge}
+              ${deployLink}
+              ${githubLink}
             </div>
           </div>
-          <div class="project-info">
-            <p class="project-desc">${item.description}</p>
-            <div class="project-skills">
-              <span class="project-skills-label">Skills</span>
-              <div class="project-skills-chips">${skills}</div>
+          <div class="project-body">
+            <div class="project-media">
+              <div class="project-pic">Main Picture</div>
+              <div class="project-carousel">
+                <div class="carousel-thumb"></div>
+                <div class="carousel-thumb"></div>
+                <div class="carousel-thumb"></div>
+              </div>
+            </div>
+            <div class="project-info">
+              <p class="project-desc">${item.description}</p>
+              <div class="project-skills">
+                <span class="project-skills-label">Skills</span>
+                <div class="project-skills-chips">${skills}</div>
+              </div>
             </div>
           </div>
         </div>
