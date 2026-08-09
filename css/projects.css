@@ -91,7 +91,7 @@
   flex-wrap: wrap;
   gap: 8px;
   font-family: var(--font-body);
-  font-size: 14px;
+  font-size: 21px;
   color: rgba(60, 50, 35, 0.55);
 }
 
@@ -218,10 +218,51 @@
   flex: 1 1 34%;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  gap: 24px;
+  gap: 16px;
   min-height: 0;
+}
+
+.info-card {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+}
+
+.info-card.description {
+  flex: 1 1 auto;
+  min-height: 0;
+}
+
+.info-card.stack {
+  flex: 0 0 auto;
+}
+
+.info-card-title {
+  flex: 0 0 auto;
+  padding: 8px 14px;
+  background: #4a4230;
+  color: #f4ecd8;
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.info-card-body {
+  flex: 1;
+  min-height: 0;
+  padding: 14px;
+  background: rgba(60, 50, 35, 0.04);
+  border: 1px solid rgba(60, 50, 35, 0.15);
+  border-top: none;
   overflow-y: auto;
+}
+
+.info-card.stack .info-card-body {
+  flex: 0 0 auto;
+  padding: 0;
+  overflow: visible;
 }
 
 .project-desc {
@@ -231,35 +272,28 @@
   color: #4a4230;
 }
 
-.project-skills {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-.project-skills-label {
+.stack-table {
+  width: 100%;
+  border-collapse: collapse;
   font-family: var(--font-body);
-  font-size: 11px;
-  font-weight: 500;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: rgba(60, 50, 35, 0.5);
-}
-
-.project-skills-chips {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-}
-
-.skill-chip {
-  padding: 5px 12px;
-  border-radius: 999px;
-  border: 1px solid rgba(60, 50, 35, 0.3);
-  background: transparent;
-  font-family: var(--font-body);
-  font-size: 12px;
+  font-size: 13px;
   color: #4a4230;
+}
+
+.stack-table td {
+  padding: 9px 12px;
+  border-bottom: 1px solid rgba(60, 50, 35, 0.15);
+}
+
+.stack-table tr:last-child td {
+  border-bottom: none;
+}
+
+.stack-table td:first-child {
+  font-weight: 600;
+  color: rgba(60, 50, 35, 0.55);
+  width: 42%;
+  border-right: 1px solid rgba(60, 50, 35, 0.15);
 }
 
 .sheet-nav {

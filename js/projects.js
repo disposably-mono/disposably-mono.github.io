@@ -10,7 +10,11 @@ const PROJECTS_DATA = {
       deployUrl: '#',
       githubUrl: '#',
       description: 'A directory app for finding halal-certified restaurants nearby, with filters for cuisine and distance.',
-      skills: ['React Native', 'Node.js', 'PostgreSQL'],
+      skills: [
+        { label: 'Framework', value: 'React Native' },
+        { label: 'Backend', value: 'Node.js' },
+        { label: 'Database', value: 'PostgreSQL' },
+      ],
       media: [
         { caption: 'Home screen' },
         { caption: 'Search & filters' },
@@ -24,7 +28,11 @@ const PROJECTS_DATA = {
       deployUrl: '#',
       githubUrl: null,
       description: 'Parish website redesign with an events calendar, bulletin archive, and a donation portal.',
-      skills: ['Next.js', 'Tailwind CSS', 'Sanity CMS'],
+      skills: [
+        { label: 'Framework', value: 'Next.js' },
+        { label: 'Styling', value: 'Tailwind CSS' },
+        { label: 'CMS', value: 'Sanity CMS' },
+      ],
       media: [
         { caption: 'Homepage' },
         { caption: 'Events calendar' },
@@ -54,7 +62,7 @@ function createProjectsMat() {
     const deployTag = item.deployUrl
       ? `(<a class="project-tag deploy" href="${item.deployUrl}" target="_blank" rel="noopener">Deployment</a>)`
       : '';
-    const skills = item.skills.map((skill) => `<span class="skill-chip">${skill}</span>`).join('');
+    const skillRows = item.skills.map((s) => `<tr><td>${s.label}</td><td>${s.value}</td></tr>`).join('');
     const prevHidden = i === 0 ? ' is-hidden' : '';
     const nextHidden = i === items.length - 1 ? ' is-hidden' : '';
     const [mainMedia, ...thumbMedia] = item.media;
@@ -70,7 +78,7 @@ function createProjectsMat() {
       <article class="project-card" data-animate="fade-up" data-animate-delay="${delay}">
         <div class="project-sheet">
           <div class="project-header">
-            <h2 class="project-title">${item.title}</h2>
+            <h2 class="project-title">Project ${i + 1}: ${item.title}</h2>
             <div class="project-tags">${openTag} ${deployTag}</div>
           </div>
           <div class="project-body">
@@ -82,10 +90,19 @@ function createProjectsMat() {
               <div class="project-thumbs">${thumbs}</div>
             </div>
             <div class="project-info">
-              <p class="project-desc">${item.description}</p>
-              <div class="project-skills">
-                <span class="project-skills-label">Skills</span>
-                <div class="project-skills-chips">${skills}</div>
+              <div class="info-card description">
+                <div class="info-card-title">Description</div>
+                <div class="info-card-body">
+                  <p class="project-desc">${item.description}</p>
+                </div>
+              </div>
+              <div class="info-card stack">
+                <div class="info-card-title">Stack</div>
+                <div class="info-card-body">
+                  <table class="stack-table">
+                    <tbody>${skillRows}</tbody>
+                  </table>
+                </div>
               </div>
             </div>
           </div>
