@@ -37,5 +37,24 @@
   font-family: var(--font-body);
   font-size: clamp(13px, 1.6vw, 18px);
   letter-spacing: 0.03em;
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+}
+
+.contact-link {
   color: #555;
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  padding-bottom: 1px;
+}
+
+.contact-link:hover {
+  color: #222;
+  border-bottom-color: #222;
+}
+
+.contact-sep {
+  color: #999;
+  user-select: none;
 }
