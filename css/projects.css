@@ -1,0 +1,68 @@
+.projects-row {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 0 6%;
+  scroll-snap-type: x proximity;
+}
+
+.project-card {
+  flex: 0 0 min(560px, 80vw);
+  scroll-snap-align: center;
+}
+
+.project-title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 20px;
+  color: #fdf6e3;
+  margin-bottom: 10px;
+}
+
+.project-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.project-col {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.project-block {
+  background: #f4efe4;
+  border-radius: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #5a4632;
+  text-align: center;
+}
+
+.project-block.pic {
+  height: 140px;
+  background: linear-gradient(135deg, #2e2e4a, #4a2e4a);
+  color: rgba(255, 255, 255, 0.65);
+}
+
+.project-block.carousel {
+  height: 90px;
+  background: linear-gradient(135deg, #1c2b4a, #3a5a8a);
+  color: rgba(255, 255, 255, 0.65);
+}
+
+.project-block.skills {
+  min-height: 240px;
+}
