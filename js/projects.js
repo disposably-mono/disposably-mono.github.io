@@ -12,7 +12,7 @@ const PROJECTS_DATA = {
       openSource: true,
       deployUrl: null,
       githubUrl: 'https://github.com/disposably-mono/halal.',
-      description: 'School election platform, provably anonymous. A full-lifecycle election system for the OLPS Commission on Elections, covering candidate and voter setup, one-time control numbers, live turnout, and receipt-verifiable certified results.',
+      description: 'A full-lifecycle election platform built for the OLPS Commission on Elections, covering candidate and voter setup, one-time control numbers, and live turnout. Ballots are stored anonymously and results are receipt-verifiable, with permissions enforced server-side rather than hidden in the UI.',
       skills: [
         { label: 'Framework', value: 'Next.js 16' },
         { label: 'Language', value: 'TypeScript' },
@@ -32,7 +32,7 @@ const PROJECTS_DATA = {
       openSource: true,
       deployUrl: null,
       githubUrl: 'https://github.com/disposably-mono/Mnemo-Skill',
-      description: 'Spaced-repetition flashcard generator, source-grounded. A Claude Code skill and Python toolkit that plans learning objectives before generating cloze, basic, and image-occlusion Anki cards, then imports them straight into Anki.',
+      description: 'A Claude Code skill and Python toolkit that turns study material into source-grounded Anki flashcards. It plans learning objectives before generating cloze, basic, and image-occlusion cards, then imports them straight into Anki via AnkiConnect.',
       skills: [
         { label: 'Type', value: 'Claude Code Skill' },
         { label: 'Language', value: 'Python' },
