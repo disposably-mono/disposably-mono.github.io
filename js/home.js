@@ -25,10 +25,10 @@ function createHomeMat() {
             <line class="draw-line" data-animate-delay="0.45" x1="4" y1="5" x2="296" y2="5" stroke="#fff" stroke-width="3" stroke-linecap="round"/>
           </svg>
         </h1>
-        <div class="hero-desc" data-animate="fade-up" data-animate-delay="0.7">I'm a student based in the Philippines, building small things that mostly work.</div>
+        <div class="hero-desc" data-animate="fade-up" data-animate-delay="0.7">Mikel Taopa — BS Management Economics, UPB, Class of 2026–2030. Antipolo City, Rizal.</div>
       </div>
       <div class="about-panel">
-        <p class="about-text" data-animate="fade-up" data-animate-delay="0.85">Hey — I'm Mono. I build things, and sometimes they even work on the first try. Mostly I just enjoy the process.</p>
+        <p class="about-text" data-animate="fade-up" data-animate-delay="0.85">I study Management Economics with one goal: solving real problems with curiosity and intellect. Growing up here taught me grit and resilience — my curiosity asks the hard questions, my education lets me critique and analyze, and my ego convinces me I can build things that matter.</p>
       </div>
     </div>
     <div class="hero-tagwrap">
