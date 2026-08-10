@@ -18,19 +18,25 @@ function createHomeMat() {
     <div class="cutting-grid"></div>
     <svg class="cutting-overlay"></svg>
     <div class="home-panels">
-      <div class="hero-panel">
+      <div class="hero-zone hero-zone--topleft">
         <h1 class="hero-name" data-animate="fade-up" data-animate-delay="0.1">
           Mono
           <svg class="hero-underline" width="300" height="10" viewBox="0 0 300 10" preserveAspectRatio="none">
             <line class="draw-line" data-animate-delay="0.35" x1="4" y1="5" x2="296" y2="5" stroke="#fff" stroke-width="3" stroke-linecap="round"/>
           </svg>
         </h1>
-        <div class="hero-desc" data-animate="fade-up" data-animate-delay="0.55">Mikel Taopa — BS Management Economics, UPB '26–'30. Antipolo City, Rizal.</div>
-        <p class="about-text" data-animate="fade-up" data-animate-delay="0.8">I study Management Economics to solve real problems with curiosity and intellect. Growing up here taught me grit — curiosity asks the hard questions, education sharpens the critique, and ego convinces me I can build things that matter.</p>
       </div>
-    </div>
-    <div class="hero-tagwrap">
-      <div class="hero-tag" data-animate="fade-up" data-animate-delay="1.05">One problem at a time</div>
+      <div class="hero-zone hero-zone--topright">
+        <div class="hero-oneliner" data-animate="fade-up" data-animate-delay="0.4">Mikel Taopa — BS Management Economics, UPB '26–'30. Antipolo City, Rizal.</div>
+      </div>
+      <div class="hero-zone hero-zone--bottomleft">
+        <p class="about-text" data-animate="fade-up" data-animate-delay="0.7">I study Management Economics to solve real problems with curiosity and intellect. Growing up here taught me grit — curiosity asks the hard questions, education sharpens the critique, and ego convinces me I can build things that matter.</p>
+      </div>
+      <div class="hero-zone hero-zone--bottomright">
+        <div class="hero-tagwrap" data-animate="fade-up" data-animate-delay="1.0">
+          <div class="hero-tag">One problem at a time</div>
+        </div>
+      </div>
     </div>
   `;
 
