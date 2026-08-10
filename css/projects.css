@@ -347,6 +347,20 @@
   pointer-events: none;
 }
 
+.mat[data-mat="projects"] .mat-accessory {
+  transition: opacity 0.2s ease;
+}
+
+.mat[data-mat="projects"] .mat-accessory.is-transitioning {
+  opacity: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mat[data-mat="projects"] .mat-accessory {
+    transition: none;
+  }
+}
+
 .mat[data-mat="projects"] .mat-accessory--pen {
   top: 8%;
   left: -90px;

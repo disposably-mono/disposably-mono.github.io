@@ -161,13 +161,24 @@ function createProjectsMat() {
 
 function wireProjectsNav(section) {
   const row = section.querySelector('.projects-row');
+  const accessories = section.querySelectorAll('.mat-accessory');
 
   row.addEventListener('click', (e) => {
     const btn = e.target.closest('.sheet-nav');
     if (!btn || btn.classList.contains('is-hidden')) return;
 
+    accessories.forEach((el) => el.classList.add('is-transitioning'));
+
     const dir = btn.dataset.dir === 'next' ? 1 : -1;
     row.scrollBy({ left: dir * row.clientWidth, behavior: 'smooth' });
+
+    const restore = () => accessories.forEach((el) => el.classList.remove('is-transitioning'));
+
+    if ('onscrollend' in window) {
+      row.addEventListener('scrollend', restore, { once: true });
+    } else {
+      setTimeout(restore, 600);
+    }
   });
 }
 
