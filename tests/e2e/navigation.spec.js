@@ -160,14 +160,14 @@ test('accessories use the cutting mat cell as their scale unit', async ({ page }
   await page.goto('/');
 
   const expectedCellCounts = {
-    protractor: 8,
-    marker: 8,
-    pen: 8,
-    pencil: 8,
-    eraser: 5,
+    protractor: 9,
+    marker: 9,
+    pen: 11,
+    pencil: 11,
+    eraser: 6,
     scissors: 9,
-    'wireless-mouse': 6,
-    calculator: 8,
+    'wireless-mouse': 8,
+    calculator: 10,
   };
 
   for (const [name, count] of Object.entries(expectedCellCounts)) {
@@ -182,19 +182,16 @@ test('accessories use the cutting mat cell as their scale unit', async ({ page }
   }
 });
 
-test('contact tablet renders a profile CTA and icon links with tooltips', async ({ page }) => {
+test('contact tablet renders an email CTA and social links', async ({ page }) => {
   await page.goto('/');
 
   const tablet = page.locator('.contact-tablet');
-  await expect(tablet.getByRole('heading', { name: 'Mikel Taopa' })).toBeVisible();
-  await expect(tablet.getByRole('link', { name: 'Send an email' })).toHaveAttribute(
+  await expect(tablet.locator('.contact-identity-name')).toHaveText('Mikel Taopa');
+  await expect(tablet.getByRole('link', { name: 'Write to Mikel →' })).toHaveAttribute(
     'href',
     'mailto:mikel.taopa@gmail.com',
   );
-  await expect(tablet.locator('.contact-icon-link')).toHaveCount(5);
-  await expect(tablet.locator('.contact-icon-link').first()).toHaveAttribute(
-    'data-tooltip', /facebook\.com/,
-  );
+  await expect(tablet.locator('.contact-icon-link')).toHaveCount(4);
 });
 
 test('camera stays aligned with the active mat after a window resize', async ({ page }) => {
@@ -234,4 +231,52 @@ test('projects mat scrolls horizontally, not vertically', async ({ page }) => {
 
   expect(overflowX).toBe('auto');
   expect(overflowY).toBe('hidden');
+});
+
+test('mobile layout hides desk accessories and keeps the fixed nav usable', async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.goto('/');
+
+  const accessories = page.locator('.mat-accessory');
+  await expect(accessories).toHaveCount(9);
+  const visibleAccessories = await accessories.evaluateAll((items) => {
+    return items.filter((item) => getComputedStyle(item).display !== 'none').length;
+  });
+
+  expect(visibleAccessories).toBe(0);
+  await expect(page.locator('#nav')).toHaveCSS('top', '12px');
+  await expect(page.locator('.nav-link').first()).toHaveCSS('min-height', '44px');
+});
+
+test('mobile projects keep the sheet clear of the fixed navigation', async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.goto('/');
+  await page.locator('.nav-link[data-target="projects"]').click();
+  await page.waitForTimeout(1300);
+
+  const navBox = await page.locator('#nav').boundingBox();
+  const sheet = page.locator('.project-sheet').first();
+  const sheetBox = await sheet.boundingBox();
+
+  expect(navBox).not.toBeNull();
+  expect(sheetBox).not.toBeNull();
+  expect(sheetBox.y).toBeGreaterThanOrEqual(navBox.y + navBox.height + 12);
+  expect(sheetBox.y + sheetBox.height).toBeLessThanOrEqual(829);
+  await expect(sheet).toHaveCSS('overflow-y', 'auto');
+});
+
+test('short landscape screens keep controls clear and content in view', async ({ page }) => {
+  await page.setViewportSize({ width: 844, height: 390 });
+  await page.goto('/');
+
+  const visibleAccessories = await page.locator('.mat-accessory').evaluateAll((items) => {
+    return items.filter((item) => getComputedStyle(item).display !== 'none').length;
+  });
+
+  expect(visibleAccessories).toBe(0);
+  await expect(page.locator('.nav-link').first()).toHaveCSS('min-height', '44px');
+
+  const tagBox = await page.locator('.hero-tagwrap').boundingBox();
+  expect(tagBox).not.toBeNull();
+  expect(tagBox.y + tagBox.height).toBeLessThanOrEqual(390);
 });

@@ -255,6 +255,11 @@
 
 /* ── Mobile ── */
 @media (max-width: 720px) {
+  .contact-tablet {
+    top: 54%;
+    width: min(88%, 430px);
+  }
+
   .contact-screen {
     grid-template-columns: 1fr;
     grid-template-rows: auto 1fr;
@@ -277,7 +282,7 @@
   }
 
   .contact-panel-note {
-    padding: 6% 8%;
+    padding: 6% 8% 7%;
     justify-content: flex-start;
   }
 
@@ -373,12 +378,5 @@
 
   .contact-rule {
     margin-bottom: 14px;
-  }
-}
-
-@media (max-width: 720px) {
-  .mat[data-mat="contact"] .mat-accessory--wireless-mouse,
-  .mat[data-mat="contact"] .mat-accessory--calculator {
-    display: none;
   }
 }

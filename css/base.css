@@ -157,17 +157,33 @@ body {
 }
 
 @media (max-width: 720px) {
+  :root {
+    --mobile-nav-top: max(12px, env(safe-area-inset-top));
+  }
+
+  #nav {
+    top: var(--mobile-nav-top);
+    align-items: center;
+    max-width: calc(100% - 24px);
+    padding: 4px 10px;
+  }
+
   .nav-link {
-    padding: 16px 8px 14px;
+    min-height: 44px;
+    padding: 12px 8px 10px;
     font-size: 12px;
   }
 
   .nav-sep {
     align-self: center;
   }
+
+  .mat-accessory {
+    display: none;
+  }
 }
 
-@media (max-height: 480px) {
+@media (min-width: 721px) and (max-height: 480px) {
   #nav {
     top: 6px;
     padding: 4px 12px;
@@ -176,5 +192,15 @@ body {
   .nav-link {
     padding: 10px 6px 8px;
     font-size: 11px;
+  }
+}
+
+@media (max-height: 480px) {
+  .mat-accessory {
+    display: none;
+  }
+
+  .nav-link {
+    min-height: 44px;
   }
 }
