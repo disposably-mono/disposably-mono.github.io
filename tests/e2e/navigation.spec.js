@@ -83,6 +83,120 @@ test('entrance animation fades up the hero name after load, reduced motion shows
   expect(Number(finalOpacity)).toBe(1);
 });
 
+test('returning home does not replay the hero entrance animation', async ({ page }) => {
+  await page.goto('/');
+  const name = page.locator('.mat[data-mat="home"] .hero-name');
+
+  await page.waitForTimeout(1300);
+  await page.locator('.nav-link[data-target="projects"]').click();
+  await page.waitForTimeout(1300);
+  await page.locator('.nav-link[data-target="home"]').click();
+  await page.waitForTimeout(1300);
+
+  const opacity = await name.evaluate((el) => getComputedStyle(el).opacity);
+  expect(Number(opacity)).toBe(1);
+});
+
+test('home hero uses a centered portrait hierarchy', async ({ page }) => {
+  await page.goto('/');
+
+  const hero = page.locator('.mat[data-mat="home"] .home-panels.home-portrait');
+
+  await expect(hero).toHaveCount(1);
+  expect(await hero.locator('.hero-identity').innerText()).toBe(
+    "Mikel Taopa | Antipolo City, Rizal\nUPB '26-'30 - B.S. Management Economics",
+  );
+  await expect(hero.locator('.hero-name')).toHaveText(/Mono/);
+  await expect(hero.locator('.hero-statement')).toHaveText(
+    'I\'m a student based in the Philippines with the curiosity to ask the hard questions and the grit to persevere through hardship. Growing up here taught me two important lessons: 1. Life is never easy and 2. I am someone capable of great change. My blend of curiosity, intellect, resilience and upbringing make me someone who builds for the betterment of all.',
+  );
+  await expect(hero.locator('.hero-tagwrap')).toHaveText('One problem at a time');
+  await expect(hero.locator('.hero-zone')).toHaveCount(0);
+});
+
+test('projects and contact content is visible before camera navigation', async ({ page }) => {
+  await page.goto('/');
+
+  const projectOpacity = await page.locator('.project-card').first().evaluate(
+    (el) => getComputedStyle(el).opacity,
+  );
+  const contactOpacity = await page.locator('.contact-tablet').evaluate(
+    (el) => getComputedStyle(el).opacity,
+  );
+
+  expect(Number(projectOpacity)).toBe(1);
+  expect(Number(contactOpacity)).toBe(1);
+});
+
+test('mats render local non-interactive desk accessories', async ({ page }) => {
+  await page.goto('/');
+
+  const expected = {
+    home: ['protractor', 'marker', 'scissors', 'highlighter'],
+    projects: ['pen', 'pencil', 'eraser'],
+    contact: ['wireless-mouse', 'calculator'],
+  };
+
+  for (const [matKey, names] of Object.entries(expected)) {
+    const mat = page.locator(`.mat[data-mat="${matKey}"]`);
+    const accessories = mat.locator('.mat-accessory');
+
+    await expect(accessories).toHaveCount(names.length);
+
+    for (const name of names) {
+      const accessory = mat.locator(`.mat-accessory--${name}`);
+      await expect(accessory).toHaveAttribute(
+        'src',
+        new RegExp(`^public/accessories/${name}\\.png$`),
+      );
+      await expect(accessory).toHaveAttribute('alt', '');
+      await expect(accessory).toHaveAttribute('aria-hidden', 'true');
+    }
+  }
+});
+
+test('accessories use the cutting mat cell as their scale unit', async ({ page }) => {
+  await page.setViewportSize({ width: 1440, height: 900 });
+  await page.goto('/');
+
+  const expectedCellCounts = {
+    protractor: 8,
+    marker: 8,
+    pen: 8,
+    pencil: 8,
+    eraser: 5,
+    scissors: 9,
+    'wireless-mouse': 6,
+    calculator: 8,
+  };
+
+  for (const [name, count] of Object.entries(expectedCellCounts)) {
+    const accessory = page.locator(`.mat-accessory--${name}`);
+    const cellSize = await accessory.evaluate(
+      (el) => getComputedStyle(el.parentElement).getPropertyValue('--mat-cell'),
+    );
+    const width = await accessory.evaluate((el) => getComputedStyle(el).width);
+
+    expect(Number.parseFloat(cellSize)).toBeGreaterThan(0);
+    expect(Number.parseFloat(width)).toBeCloseTo(Number.parseFloat(cellSize) * count, 0);
+  }
+});
+
+test('contact tablet renders a profile CTA and icon links with tooltips', async ({ page }) => {
+  await page.goto('/');
+
+  const tablet = page.locator('.contact-tablet');
+  await expect(tablet.getByRole('heading', { name: 'Mikel Taopa' })).toBeVisible();
+  await expect(tablet.getByRole('link', { name: 'Send an email' })).toHaveAttribute(
+    'href',
+    'mailto:mikel.taopa@gmail.com',
+  );
+  await expect(tablet.locator('.contact-icon-link')).toHaveCount(5);
+  await expect(tablet.locator('.contact-icon-link').first()).toHaveAttribute(
+    'data-tooltip', /facebook\.com/,
+  );
+});
+
 test('camera stays aligned with the active mat after a window resize', async ({ page }) => {
   await page.setViewportSize({ width: 1280, height: 720 });
   await page.goto('/');

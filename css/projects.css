@@ -347,8 +347,35 @@
   pointer-events: none;
 }
 
+.mat[data-mat="projects"] .mat-accessory--pen {
+  top: 25%;
+  left: 1.5%;
+  width: calc(var(--mat-cell) * 9);
+  transform: rotate(0deg);
+}
+
+.mat[data-mat="projects"] .mat-accessory--pencil {
+  right: 1.5%;
+  bottom: 17%;
+  width: calc(var(--mat-cell) * 9);
+  transform: rotate(0deg);
+}
+
+.mat[data-mat="projects"] .mat-accessory--eraser {
+  top: 5%;
+  right: 6%;
+  width: calc(var(--mat-cell) * 6);
+  transform: rotate(-8deg);
+}
+
 @media (max-width: 720px) {
   .project-body { flex-direction: column; }
   .project-thumbs { flex: 0 0 auto; overflow-x: auto; }
   .media-card.thumb { flex: 0 0 70px; }
+
+  .mat[data-mat="projects"] .mat-accessory--pen,
+  .mat[data-mat="projects"] .mat-accessory--pencil,
+  .mat[data-mat="projects"] .mat-accessory--eraser {
+    display: none;
+  }
 }

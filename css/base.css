@@ -51,6 +51,16 @@ body {
   z-index: 1;
 }
 
+.mat-accessory {
+  position: absolute;
+  z-index: 3;
+  display: block;
+  height: auto;
+  pointer-events: none;
+  user-select: none;
+  filter: drop-shadow(3px 6px 4px rgba(0, 0, 0, 0.35));
+}
+
 #nav {
   position: fixed;
   top: 52px;

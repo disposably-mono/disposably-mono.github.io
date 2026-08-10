@@ -23,6 +23,8 @@ function buildCuttingMat(matEl) {
   const padT = Math.floor((vh - gridH) / 2);
   const step = cell + gap;
 
+  matEl.style.setProperty('--mat-cell', `${cell}px`);
+
   const style = getComputedStyle(matEl);
   const lineTint = style.getPropertyValue('--line-tint').trim() || 'rgba(255,255,255,0.5)';
   const lineTintStrong = style.getPropertyValue('--line-tint-strong').trim() || '#ffffff';

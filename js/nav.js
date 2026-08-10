@@ -25,7 +25,6 @@ function initNav(matsData) {
       panTo(data.key, {
         onComplete: () => {
           nav.classList.remove('is-panning');
-          playEntranceAnimation(data.key);
         },
       });
     });

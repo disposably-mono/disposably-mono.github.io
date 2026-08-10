@@ -21,19 +21,42 @@ function createContactMat() {
   section.style.setProperty('--x', CONTACT_DATA.x);
   section.style.setProperty('--y', CONTACT_DATA.y);
 
-  const links = CONTACT_DATA.links.map((link) => {
-    const isMail = link.href.startsWith('mailto:');
-    const attrs = isMail ? '' : ' target="_blank" rel="noopener"';
-    return `<a class="contact-link" href="${link.href}"${attrs}>${link.label}</a>`;
-  }).join('<span class="contact-sep">·</span>');
+  const labels = { facebook: 'Facebook', instagram: 'Instagram', linkedin: 'LinkedIn', github: 'GitHub' };
+
+  const links = CONTACT_DATA.links
+    .filter((link) => link.label !== 'mail')
+    .map((link) => {
+      return `<a class="contact-icon-link" href="${link.href}" target="_blank" rel="noopener" aria-label="${link.label}">${labels[link.label]}</a>`;
+    }).join('');
 
   section.innerHTML = `
     <div class="cutting-grid"></div>
     <svg class="cutting-overlay"></svg>
-    <div class="contact-tablet" data-animate="fade-up" data-animate-delay="0.15">
+    <img class="mat-accessory mat-accessory--wireless-mouse" src="public/accessories/wireless-mouse.png" alt="" aria-hidden="true">
+    <img class="mat-accessory mat-accessory--calculator" src="public/accessories/calculator.png" alt="" aria-hidden="true">
+    <div class="contact-tablet">
       <div class="contact-screen">
-        <h2 class="contact-heading">Say hi</h2>
-        <div class="contact-links">${links}</div>
+
+        <div class="contact-panel-identity">
+          <div class="contact-avatar">
+            <img src="public/grad-pic.jpg" alt="Mikel Taopa">
+          </div>
+          <div class="contact-identity-divider" aria-hidden="true"></div>
+          <p class="contact-identity-name">Mikel Taopa</p>
+        </div>
+
+        <div class="contact-panel-note">
+          <div class="contact-note-status">
+            <span class="contact-status-dot" aria-hidden="true"></span>
+            <span class="contact-status-text">Open to conversations</span>
+          </div>
+          <div class="contact-rule" aria-hidden="true"></div>
+          <p class="contact-bio">Curious about finance, automation, or machine learning? Or just why things break in the first place? Let's talk.</p>
+          <a class="contact-cta" href="mailto:mikel.taopa@gmail.com">Write to Mikel →</a>
+          <p class="contact-channel-label">Find me at</p>
+          <div class="contact-icons" aria-label="Contact channels">${links}</div>
+        </div>
+
       </div>
     </div>
   `;

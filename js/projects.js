@@ -91,7 +91,6 @@ function createProjectsMat() {
   const items = PROJECTS_DATA.items;
 
   const cards = items.map((item, i) => {
-    const delay = (0.1 + i * 0.15).toFixed(2);
     const openTag = item.openSource
       ? `(<a class="project-tag open" href="${item.githubUrl}" target="_blank" rel="noopener">Open Source</a>)`
       : `(<span class="project-tag closed">Closed Source</span>)`;
@@ -111,7 +110,7 @@ function createProjectsMat() {
     `).join('');
 
     return `
-      <article class="project-card" data-animate="fade-up" data-animate-delay="${delay}">
+      <article class="project-card">
         <div class="project-sheet">
           <div class="project-header">
             <h2 class="project-title">Project ${i + 1}: ${item.title}</h2>
@@ -148,6 +147,9 @@ function createProjectsMat() {
   section.innerHTML = `
     <div class="cutting-grid"></div>
     <svg class="cutting-overlay"></svg>
+    <img class="mat-accessory mat-accessory--pen" src="public/accessories/pen.png" alt="" aria-hidden="true">
+    <img class="mat-accessory mat-accessory--pencil" src="public/accessories/pencil.png" alt="" aria-hidden="true">
+    <img class="mat-accessory mat-accessory--eraser" src="public/accessories/eraser.png" alt="" aria-hidden="true">
     <div class="projects-row">${cards}</div>
   `;
 
