@@ -43,6 +43,7 @@ function createContactMat() {
           </div>
           <div class="contact-identity-divider" aria-hidden="true"></div>
           <p class="contact-identity-name">Mikel Taopa</p>
+          <a class="contact-resume-link" href="public/resume.pdf" target="_blank" rel="noopener">View résumé</a>
         </div>
 
         <div class="contact-panel-note">

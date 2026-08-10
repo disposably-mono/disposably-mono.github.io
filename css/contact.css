@@ -88,6 +88,30 @@
   white-space: nowrap;
 }
 
+.contact-resume-link {
+  font-family: var(--font-body);
+  font-size: clamp(11px, 1vw, 13px);
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  color: #7ab898;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-color: rgba(122, 184, 152, 0.5);
+  transition: color 0.15s ease, text-decoration-color 0.15s ease;
+}
+
+.contact-resume-link:hover,
+.contact-resume-link:focus-visible {
+  color: #a8d4bb;
+  text-decoration-color: rgba(168, 212, 187, 0.7);
+}
+
+.contact-resume-link:focus-visible {
+  outline: 2px solid #3d6b53;
+  outline-offset: 3px;
+  border-radius: 1px;
+}
+
 /* ── Right: note panel ── */
 .contact-panel-note {
   background: #f4ecd8;
