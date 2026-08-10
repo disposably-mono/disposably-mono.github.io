@@ -2,20 +2,36 @@
   position: absolute;
   inset: 0;
   z-index: 2;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 0 8% 0 9%;
 }
 
-.hero-panel {
-  max-width: 620px;
+.hero-zone {
+  position: absolute;
+}
+
+.hero-zone--topleft {
+  top: 8%;
+  left: 9%;
+}
+
+.hero-zone--topright {
+  top: 8%;
+  right: 8%;
+}
+
+.hero-zone--bottomleft {
+  bottom: 12%;
+  left: 9%;
+}
+
+.hero-zone--bottomright {
+  bottom: 12%;
+  right: 8%;
 }
 
 .hero-name {
   font-family: var(--font-display);
   font-weight: 700;
-  font-size: clamp(72px, 11vw, 160px);
+  font-size: clamp(80px, 13vw, 180px);
   line-height: 0.85;
   letter-spacing: -0.02em;
   color: #fff;
@@ -26,16 +42,18 @@
   position: absolute;
   left: 2px;
   bottom: -8px;
-  width: clamp(220px, 34vw, 460px);
+  width: clamp(240px, 38vw, 520px);
 }
 
-.hero-desc {
+.hero-oneliner {
   font-family: var(--font-body);
-  font-size: clamp(20px, 2.4vw, 24px);
+  font-size: clamp(12px, 1vw, 14px);
   font-weight: 500;
-  line-height: 1.4;
-  color: rgba(255, 255, 255, 0.92);
-  margin-top: 22px;
+  line-height: 1.5;
+  letter-spacing: 0.1em;
+  color: rgba(255, 255, 255, 0.7);
+  text-align: right;
+  max-width: 280px;
 }
 
 .about-text {
@@ -44,17 +62,13 @@
   line-height: 1.65;
   color: rgba(255, 255, 255, 0.62);
   max-width: 480px;
-  margin-top: 28px;
 }
 
 .hero-tagwrap {
-  position: absolute;
-  left: 9%;
-  bottom: 12%;
-  z-index: 2;
   display: flex;
   align-items: center;
   gap: 12px;
+  justify-content: flex-end;
 }
 
 .hero-tagwrap::before {
@@ -74,9 +88,39 @@
 }
 
 @media (max-width: 720px) {
-  .home-panels { padding: 0 8%; }
-  .hero-panel { max-width: none; }
-  .hero-desc { margin-top: 16px; }
-  .about-text { max-width: none; margin-top: 20px; }
-  .hero-tagwrap { left: 8%; bottom: 10%; }
+  .home-panels {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 8%;
+  }
+
+  .hero-zone {
+    position: static;
+  }
+
+  .hero-zone--topright {
+    margin-top: 16px;
+  }
+
+  .hero-zone--bottomleft {
+    margin-top: 20px;
+  }
+
+  .hero-zone--bottomright {
+    margin-top: 20px;
+  }
+
+  .hero-oneliner {
+    text-align: left;
+    max-width: none;
+  }
+
+  .about-text {
+    max-width: none;
+  }
+
+  .hero-tagwrap {
+    justify-content: flex-start;
+  }
 }
