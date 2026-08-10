@@ -348,22 +348,20 @@
 }
 
 .mat[data-mat="projects"] .mat-accessory--pen {
-  top: 25%;
-  left: 1.5%;
+  top: 8%;
+  left: -129px;
   width: calc(var(--mat-cell) * 9);
-  transform: rotate(0deg);
 }
 
 .mat[data-mat="projects"] .mat-accessory--pencil {
-  right: 1.5%;
-  bottom: 17%;
+  bottom: 8%;
+  right: -132px;
   width: calc(var(--mat-cell) * 9);
-  transform: rotate(0deg);
 }
 
 .mat[data-mat="projects"] .mat-accessory--eraser {
-  top: 5%;
-  right: 6%;
+  top: 1%;
+  right: 2%;
   width: calc(var(--mat-cell) * 6);
   transform: rotate(-8deg);
 }
