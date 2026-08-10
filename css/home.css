@@ -96,7 +96,7 @@
 
 @media (max-width: 720px) {
   .home-portrait {
-    padding: 104px 8% 56px;
+    padding: 118px 8% 56px;
   }
 
   .hero-identity {
@@ -110,6 +110,24 @@
   .hero-statement {
     max-width: 36rem;
   }
+}
+
+@media (max-width: 380px) {
+  .home-portrait {
+    padding-top: 158px;
+  }
+
+  .hero-identity {
+    margin-bottom: 20px;
+  }
+
+  .hero-statement {
+    margin-top: 28px;
+  }
+
+  .hero-tagwrap {
+    margin-top: 20px;
+  }
 
   .mat[data-mat="home"] .mat-accessory--protractor,
   .mat[data-mat="home"] .mat-accessory--marker,
@@ -118,4 +136,26 @@
     display: none;
   }
 
+}
+
+@media (max-width: 720px) and (max-height: 480px) {
+  .home-portrait {
+    padding: 60px 8% 32px;
+  }
+
+  .hero-name {
+    font-size: clamp(48px, 16vw, 80px);
+  }
+
+  .hero-identity {
+    margin-bottom: 14px;
+  }
+
+  .hero-statement {
+    margin-top: 20px;
+  }
+
+  .hero-tagwrap {
+    margin-top: 16px;
+  }
 }

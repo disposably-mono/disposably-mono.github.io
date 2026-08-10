@@ -116,6 +116,36 @@ body {
   user-select: none;
 }
 
+/* ── Scrollbar base ── */
+.styled-scroll,
+.project-sheet,
+.info-card-body,
+.contact-screen {
+  scrollbar-width: thin;
+}
+
+.styled-scroll::-webkit-scrollbar,
+.project-sheet::-webkit-scrollbar,
+.info-card-body::-webkit-scrollbar,
+.contact-screen::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+.styled-scroll::-webkit-scrollbar-track,
+.project-sheet::-webkit-scrollbar-track,
+.info-card-body::-webkit-scrollbar-track,
+.contact-screen::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.styled-scroll::-webkit-scrollbar-thumb,
+.project-sheet::-webkit-scrollbar-thumb,
+.info-card-body::-webkit-scrollbar-thumb,
+.contact-screen::-webkit-scrollbar-thumb {
+  border-radius: 3px;
+}
+
 [data-animate="fade-up"] {
   opacity: 0;
   transform: translateY(8px);
@@ -124,4 +154,27 @@ body {
 .draw-line {
   stroke-dasharray: 1;
   stroke-dashoffset: 1;
+}
+
+@media (max-width: 720px) {
+  .nav-link {
+    padding: 16px 8px 14px;
+    font-size: 12px;
+  }
+
+  .nav-sep {
+    align-self: center;
+  }
+}
+
+@media (max-height: 480px) {
+  #nav {
+    top: 6px;
+    padding: 4px 12px;
+  }
+
+  .nav-link {
+    padding: 10px 6px 8px;
+    font-size: 11px;
+  }
 }
