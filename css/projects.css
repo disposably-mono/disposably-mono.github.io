@@ -349,13 +349,13 @@
 
 .mat[data-mat="projects"] .mat-accessory--pen {
   top: 8%;
-  left: -129px;
+  left: -90px;
   width: calc(var(--mat-cell) * 9);
 }
 
 .mat[data-mat="projects"] .mat-accessory--pencil {
   bottom: 8%;
-  right: -132px;
+  right: -93px;
   width: calc(var(--mat-cell) * 9);
 }
 
