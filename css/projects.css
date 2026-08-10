@@ -346,14 +346,14 @@
 
 .mat[data-mat="projects"] .mat-accessory--pen {
   top: 8%;
-  left: -90px;
-  width: calc(var(--mat-cell) * 9);
+  left: -128px;
+  width: calc(var(--mat-cell) * 11);
 }
 
 .mat[data-mat="projects"] .mat-accessory--pencil {
-  bottom: 8%;
-  right: -93px;
-  width: calc(var(--mat-cell) * 9);
+  bottom: calc(8% + calc(var(--mat-cell) * 2));
+  right: -128px;
+  width: calc(var(--mat-cell) * 11);
 }
 
 .mat[data-mat="projects"] .mat-accessory--eraser {
