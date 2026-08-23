@@ -3,6 +3,7 @@ node_modules/
 
 # Local tooling and worktrees
 .playwright-mcp/
+test-results/
 .superpowers/
 .worktrees/
 
