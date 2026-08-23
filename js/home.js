@@ -33,6 +33,10 @@ function createHomeMat() {
       <div class="hero-tagwrap" data-animate="fade-up" data-animate-delay="0.9">
         <div class="hero-tag">One problem at a time</div>
       </div>
+      <div class="swipe-hint" aria-hidden="true">
+        <span class="swipe-hint-text">swipe to explore</span>
+        <span class="swipe-hint-arrow">&rarr;</span>
+      </div>
     </div>
   `;
 

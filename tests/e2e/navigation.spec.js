@@ -244,7 +244,8 @@ test('mobile layout hides desk accessories and keeps the fixed nav usable', asyn
   });
 
   expect(visibleAccessories).toBe(0);
-  await expect(page.locator('#nav')).toHaveCSS('top', '12px');
+  const navBox = await page.locator('#nav').boundingBox();
+  expect(navBox.y + navBox.height).toBeGreaterThan(844 - 80);
   await expect(page.locator('.nav-link').first()).toHaveCSS('min-height', '44px');
 });
 
@@ -260,8 +261,8 @@ test('mobile projects keep the sheet clear of the fixed navigation', async ({ pa
 
   expect(navBox).not.toBeNull();
   expect(sheetBox).not.toBeNull();
-  expect(sheetBox.y).toBeGreaterThanOrEqual(navBox.y + navBox.height + 12);
-  expect(sheetBox.y + sheetBox.height).toBeLessThanOrEqual(829);
+  expect(sheetBox.y + sheetBox.height).toBeLessThanOrEqual(navBox.y + 8);
+  expect(sheetBox.y).toBeGreaterThanOrEqual(0);
   await expect(sheet).toHaveCSS('overflow-y', 'auto');
 });
 

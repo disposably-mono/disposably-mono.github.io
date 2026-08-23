@@ -90,6 +90,10 @@ function createProjectsMat() {
 
   const items = PROJECTS_DATA.items;
 
+  const dotsHTML = items.map((_, i) =>
+    `<button class="project-dot${i === 0 ? ' active' : ''}" data-index="${i}" aria-label="Go to project ${i + 1}"></button>`
+  ).join('');
+
   const cards = items.map((item, i) => {
     const openTag = item.openSource
       ? `(<a class="project-tag open" href="${item.githubUrl}" target="_blank" rel="noopener">Open Source</a>)`
@@ -151,12 +155,32 @@ function createProjectsMat() {
     <img class="mat-accessory mat-accessory--pencil" src="public/accessories/pencil.png" alt="" aria-hidden="true">
     <img class="mat-accessory mat-accessory--eraser" src="public/accessories/eraser.png" alt="" aria-hidden="true">
     <div class="projects-row">${cards}</div>
+    <div class="project-dots">${dotsHTML}</div>
   `;
 
   buildCuttingMat(section);
   wireProjectsNav(section);
+  wireProjectDots(section);
   wireMediaSwap(section);
   return section;
+}
+
+function wireProjectDots(section) {
+  const row = section.querySelector('.projects-row');
+  const dots = section.querySelectorAll('.project-dot');
+  if (!row || dots.length === 0) return;
+
+  row.addEventListener('scroll', () => {
+    const index = Math.round(row.scrollLeft / row.clientWidth);
+    dots.forEach((dot, i) => dot.classList.toggle('active', i === index));
+  }, { passive: true });
+
+  dots.forEach((dot) => {
+    dot.addEventListener('click', () => {
+      const index = parseInt(dot.dataset.index, 10);
+      row.scrollTo({ left: index * row.clientWidth, behavior: 'smooth' });
+    });
+  });
 }
 
 function wireProjectsNav(section) {

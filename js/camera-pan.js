@@ -3,11 +3,17 @@ const PAN_EASE = 'power2.inOut';
 
 let currentMatKey = 'home';
 
+function hideSwipeHint() {
+  var hint = document.querySelector('.swipe-hint');
+  if (hint) hint.classList.add('is-hidden');
+}
+
 function panTo(matKey, opts) {
   const options = opts || {};
   const mat = document.querySelector(`.mat[data-mat="${matKey}"]`);
   if (!mat) return;
 
+  hideSwipeHint();
   currentMatKey = matKey;
 
   const x = parseFloat(mat.dataset.x);
@@ -48,3 +54,50 @@ function snapToCurrentMat() {
 
 window.panTo = panTo;
 window.snapToCurrentMat = snapToCurrentMat;
+
+(function initMobileSwipe() {
+  var viewport = document.getElementById('viewport');
+  if (!viewport) return;
+
+  var matOrder = ['home', 'projects', 'contact'];
+  var touchStartX = 0;
+  var touchStartY = 0;
+  var tracking = false;
+
+  viewport.addEventListener('touchstart', function (e) {
+    if (e.target.closest('.projects-row, .project-sheet, .contact-screen, .contact-tablet')) return;
+    touchStartX = e.changedTouches[0].clientX;
+    touchStartY = e.changedTouches[0].clientY;
+    tracking = true;
+  }, { passive: true });
+
+  viewport.addEventListener('touchmove', function (e) {
+    if (!tracking) return;
+    var dy = Math.abs(e.changedTouches[0].clientY - touchStartY);
+    var dx = Math.abs(e.changedTouches[0].clientX - touchStartX);
+    if (dy > dx) tracking = false;
+  }, { passive: true });
+
+  viewport.addEventListener('touchend', function (e) {
+    if (!tracking) return;
+    tracking = false;
+
+    var dx = e.changedTouches[0].clientX - touchStartX;
+    if (Math.abs(dx) < 60) return;
+
+    var idx = matOrder.indexOf(currentMatKey);
+    var next = dx < 0 ? idx + 1 : idx - 1;
+    if (next < 0 || next >= matOrder.length) return;
+
+    var targetKey = matOrder[next];
+    var nav = document.getElementById('nav');
+    nav.querySelectorAll('.nav-link').forEach(function (l) { l.classList.remove('cur'); });
+    var btn = nav.querySelector('[data-target="' + targetKey + '"]');
+    if (btn) btn.classList.add('cur');
+
+    nav.classList.add('is-panning');
+    panTo(targetKey, {
+      onComplete: function () { nav.classList.remove('is-panning'); },
+    });
+  }, { passive: true });
+})();

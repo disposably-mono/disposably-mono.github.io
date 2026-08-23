@@ -158,24 +158,40 @@ body {
 
 @media (max-width: 720px) {
   :root {
-    --mobile-nav-top: max(12px, env(safe-area-inset-top));
+    --mobile-nav-bottom: max(16px, env(safe-area-inset-bottom));
   }
 
   #nav {
-    top: var(--mobile-nav-top);
+    top: auto;
+    bottom: var(--mobile-nav-bottom);
     align-items: center;
-    max-width: calc(100% - 24px);
-    padding: 4px 10px;
+    max-width: calc(100% - 32px);
+    padding: 6px 8px;
+    border-radius: 28px;
+    background: rgba(0, 0, 0, 0.45);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-color: rgba(255, 255, 255, 0.12);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
   }
 
   .nav-link {
     min-height: 44px;
-    padding: 12px 8px 10px;
-    font-size: 12px;
+    padding: 10px 16px;
+    font-size: 12.5px;
+    letter-spacing: 0.1em;
+    border-bottom: none;
+    border-radius: 20px;
+    transition: background 0.2s ease, color 0.2s ease;
+  }
+
+  .nav-link.cur {
+    background: rgba(255, 255, 255, 0.15);
+    border-bottom-color: transparent;
   }
 
   .nav-sep {
-    align-self: center;
+    display: none;
   }
 
   .mat-accessory {
