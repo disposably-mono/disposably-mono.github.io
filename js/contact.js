@@ -7,7 +7,7 @@ const CONTACT_DATA = {
     { label: 'facebook', href: 'https://www.facebook.com/MikelTaopa/', color: '#1877f2' },
     { label: 'instagram', href: 'https://www.instagram.com/disposablymono/', color: '#e4405f' },
     { label: 'linkedin', href: 'https://www.linkedin.com/in/mikel-taopa-a86205359/', color: '#0a66c2' },
-    { label: 'github', href: 'https://github.com/disposably-mono', color: '#f0f0f0' },
+    { label: 'github', href: 'https://github.com/disposably-mono', color: '#8b949e' },
     { label: 'mail', href: 'mailto:mikel.taopa@gmail.com', color: '#4a9060' },
   ],
 };

@@ -280,7 +280,7 @@
     height: auto;
     max-height: calc(100dvh - 108px);
     max-width: none;
-    padding: 0;
+    padding: 6px;
     border-radius: 18px;
     border: 1px solid rgba(255, 255, 255, 0.1);
     box-shadow: 0 16px 48px rgba(0, 0, 0, 0.55);

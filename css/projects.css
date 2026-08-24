@@ -447,6 +447,12 @@
     height: clamp(160px, 28dvh, 220px);
     border-radius: 0;
     border: none;
+    background: #efe5cd;
+    background-image: none;
+  }
+
+  .media-card.main .media-img {
+    object-fit: contain;
   }
 
   .media-card.main .media-caption {
@@ -473,6 +479,12 @@
     border: none;
     border-right: 1px solid rgba(60, 50, 35, 0.1);
     height: 56px;
+    background: #efe5cd;
+    background-image: none;
+  }
+
+  .media-card.thumb .media-img {
+    object-fit: contain;
   }
 
   .media-card.thumb .media-caption {
