@@ -161,6 +161,11 @@ body {
     --mobile-nav-bottom: max(16px, env(safe-area-inset-bottom));
   }
 
+  .mat {
+    top: calc(var(--y) * 100dvh);
+    height: 100dvh;
+  }
+
   #nav {
     top: auto;
     bottom: var(--mobile-nav-bottom);

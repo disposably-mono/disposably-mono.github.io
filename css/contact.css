@@ -256,7 +256,7 @@
 /* ── Mobile ── */
 @media (max-width: 720px) {
   .contact-tablet {
-    top: 48%;
+    top: calc(50% - 36px);
     width: 92%;
     height: calc(100dvh - 108px);
     max-height: none;
@@ -380,7 +380,7 @@
 
 @media (max-width: 720px) and (max-height: 500px) {
   .contact-tablet {
-    top: 48%;
+    top: calc(50% - 36px);
     height: calc(100dvh - 84px);
     padding: 0;
     border-radius: 10px;
